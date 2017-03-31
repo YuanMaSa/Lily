@@ -57,12 +57,12 @@ class LoginController extends Controller
         $authUser = $this->createUser($user);
 
         Auth::login($authUser,true);
-        return redirect('home');
+        return view('home');
         // $user->token;
 
     }
     public function createUser($user){
-        echo "1";
+        
         $authUser = User::where('google-id',$user->id)->first();
         if($authUser){
             return $authUser;
@@ -71,6 +71,8 @@ class LoginController extends Controller
             'name'=>$user->name,
             'google-id'=>$user->id,
             'email'=>$user->email,
+            'role_id'=>1,
             'avatar'=>$user->avatar,]);
+
     }
 }
