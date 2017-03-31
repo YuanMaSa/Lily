@@ -31,6 +31,9 @@
             <button type="button" class="btn btn-primary btn-sm" ><a style="color: #FFFFFF;text-decoration: none;" href="{{ url('upload') }}">上傳圖片</a></button>
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">新增園區</button>
             <!-- Modal -->
+            <form action="/address" method="post">
+            {{csrf_field()}}
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
@@ -43,20 +46,21 @@
                         <div class="modal-body">
                             <div class="row">
                                 <div class="form-group">
-                                    <label class="col-sm-3 control-label" style="margin-top:5px">輸入名稱</label>
+                                    <label class="col-sm-3 control-label" style="margin-top:5px" required>輸入名稱</label>
                                     <div class="col-sm-7">
-                                        <input type="text" name="farmname" class="form-control">
+                                        <input type="text" name="name" class="form-control">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <button type="button" class="btn btn-primary">確認</button>
+                            <button type="submit" class="btn btn-primary">確認</button>
                         </div>
                     </div>
                 </div>
             </div>
+            </form>
         </div>
         <div class="col-sm-0.5 col-md-0.5"></div>
     </div>

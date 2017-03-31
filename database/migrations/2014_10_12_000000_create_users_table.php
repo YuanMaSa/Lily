@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->integer('role_id')->unsigned();//建foreign key -> role-id
-            $table->foreign('role_id')->references('id')->on('role')->onDelete('cascade');//role-id is from role table and ondelete
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');//role-id is from role table and ondelete
         });
     }
 

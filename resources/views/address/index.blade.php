@@ -12,46 +12,54 @@
                     <td>修改位址</td>
                     <td>刪除位址</td>
                 </tr>
+                @foreach ($addresses as $address)
+                
                 <tr>
-                    <td>1.</td>
-                    <td>花蓮富里</td>
-                    <td><button type="button" class="btn btn-sm btn-success"  data-toggle="modal" data-target="#AddressModify"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改</button></td>
-                    <td><button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#AddressDelete"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>刪除</button></td>
+                    <td>{{$address->id}}</td>
+                    <td>{{$address->name}}</td>
+                    <td><button type="button" class="btn btn-sm btn-success"  data-toggle="modal" data-target="#AddressModify{{$address->id}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改</button></td>
+                    <td><button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#AddressDelete{{$address->id}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>刪除</button></td>
                 </tr>
+                @endforeach
             </table>
         </div>
     </div>
 </div>
 </div>
-<div class="modal fade" id="AddressModify" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+@foreach ($addresses as $address)
+<div class="modal fade" id="AddressModify{{$address->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel">修改園區</h4>
           </div>
-          <form class="form-horizontal" action=""  method="post">
+          <form class="form-horizontal" action="address/{{$address->id}}"  method="post">
           <div class="modal-body">
-          <input type="hidden" name="M_id" value="">
+          {{csrf_field()}}
+          {{method_field('PUT')}}
+          <input type="hidden" name="id" value="{{$address->id}}">
               <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">園區位址</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control" name="M_name" required="required"  placeholder="園區位址" value="">
+                  <input type="text" class="form-control" name="name" required="required"  placeholder="園區位址" value="{{$address->name}}">
                 </div>
               </div>
             
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" action="AccountList" name="type" value="deleteMember" class="btn btn-primary">確認</button>
+            <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" action="AccountList" name="type" value="deleteMember" class="btn btn-md btn-primary">確認</button>
           </div>
         
         </form>
         </div>
       </div>
     </div>
-<form action="AddresDelete" method="post">
-    <div class="modal fade" id="AddressDelete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+     @endforeach
+     @foreach ($addresses as $address)
+<form action="address/{{$address->id}}" method="post">
+    <div class="modal fade" id="AddressDelete{{$address->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -60,10 +68,13 @@
                 </div>
                 <div class="modal-body">
                   <table class="table table-striped">
+                  {{csrf_field()}}
+          			{{method_field('DELETE')}}
               <tbody>
-              <input type="hidden" name="M_id" value="">
-                <tr>
-                  <td><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp&nbspe花蓮</td>
+              <input type="hidden" name="id" value="{{$address->id}}">
+              	<tr>
+                  <td>{{$address->id}}</td>
+                  <td>{{$address->name}}</td>
                 </tr>
               </tbody>
             </table>
@@ -76,4 +87,5 @@
             </div>
           </div>
           </form>
+          @endforeach
 @endsection

@@ -3,6 +3,10 @@
 namespace LilyFlower\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;//use DB
+use LilyFlower\address;//use address model
+use LilyFlower\User;
+use Auth;
 
 class AddressController extends Controller
 {
@@ -13,8 +17,10 @@ class AddressController extends Controller
      */
     public function index()
     {
-        //
-        return view('address.index');//return the file names index in address folder
+        $user_id=Auth::id();
+        $addresses = User::find($user_id)->address;//查詢使用者的園區
+        // echo $user_id;
+        return view('address.index',compact('addresses'));//return the file names index in address folder
     }
 
     /**
@@ -35,7 +41,11 @@ class AddressController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $address=new address;
+        $address->name = $request->name;
+        $address->user_id = $request->user_id;
+        $address->save(); 
+        return redirect('address');
     }
 
     /**
@@ -57,7 +67,8 @@ class AddressController extends Controller
      */
     public function edit($id)
     {
-        //
+        $address = address::find($id);
+        return $address;
     }
 
     /**
@@ -68,8 +79,12 @@ class AddressController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //
+    {   $user_id=Auth::id();
+        $address = address::find($id);
+        $address->name = $request->name;
+        $address->user_id = $user_id;
+        $address->save(); 
+        return redirect('address');
     }
 
     /**
@@ -80,6 +95,8 @@ class AddressController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $address = address::find($id);
+        $address->delete();
+        return redirect('address');
     }
 }
