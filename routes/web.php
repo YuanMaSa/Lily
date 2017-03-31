@@ -10,12 +10,27 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//回到welcome頁面
 Route::get('/', function () {
     return view('welcome');
 });
+//回到upload頁面
+Route::get('/upload', function () {
+    return view('upload');
+});
+//回到管理者頁面
+Route::get('/admin', function () {
+    return view('admin');
+});
+//回到home頁面,查看所有圖片
 Route::get('/home', 'HomeController@index');
+//使用者相關登入
 Auth::routes();
 
 Route::get('auth/google', ['as'=>'auth/google','uses'=>'Auth\LoginController@redirectToProvider']);
 Route::get('auth/google/callback', ['as'=>'auth/google/callback','uses'=>'Auth\LoginController@handleProviderCallback']);
+//Address 的增刪查改
+Route::resource('address', 'AddressController');
+//Role 的增刪查改
+Route::resource('role', 'RoleController');
+
