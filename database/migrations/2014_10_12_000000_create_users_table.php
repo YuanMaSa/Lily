@@ -19,9 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('email');
             $table->string('google-id');
             $table->string('avatar');
+            $table->string('phone')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->integer('role_id')->unsigned();//建foreign key -> role-id
+            $table->foreign('role_id')->references('id')->on('role')->onDelete('cascade');//role-id is from role table and ondelete
         });
     }
 
