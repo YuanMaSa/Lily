@@ -51,8 +51,8 @@ return [
 
          'driver'    => 'mysql',
          'database'  => 'LilyTest',
-         'username'  => 'lily',
-        'password'  => '1234567',
+         'username'  => 'root',
+        'password'  => '',
          'charset'   => 'utf8',
          'collation' => 'utf8_unicode_ci',
           'prefix'    => '',

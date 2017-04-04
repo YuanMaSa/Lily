@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 //回到upload頁面
-Route::get('/upload', function () {
+Route::get('/s3-image-upload', function () {
     return view('upload');
 });
 //回到管理者頁面
@@ -33,4 +33,6 @@ Route::get('auth/google/callback', ['as'=>'auth/google/callback','uses'=>'Auth\L
 Route::resource('address', 'AddressController');
 //Role 的增刪查改
 Route::resource('role', 'RoleController');
+Route::get('s3-image-upload','S3ImageController@imageUpload');
+Route::post('s3-image-upload','S3ImageController@imageUploadPost');
 

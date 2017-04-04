@@ -32,8 +32,27 @@ $(function (){
 </script>
 
 <div class="container">
-<form class="form-horizontal">
+ @if (count($errors) > 0)
+	 <div class="alert alert-danger">
+	    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+		<ul>
+		  @foreach ($errors->all() as $error)
+		    <li>{{ $error }}</li>
+		  @endforeach
+		 </ul>
+	    </div>
+      @endif
 
+	  @if ($message = Session::get('success'))
+		<div class="alert alert-success alert-block">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+		        <strong>{{ $message }}</strong>
+		</div>
+		<img src="{{ Session::get('path') }}">
+	  @endif
+
+<form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
+{{ csrf_field() }}
 	<div class="row" style="margin-top: 100px;">
 		<div class="col-md-1 col-sm-1"></div>
 
@@ -122,7 +141,7 @@ $(function (){
 		 
 			    <div class="col-sm-3 col-sm-offset-1 control-label " >
 			    <div style="background-image: url(img/cloud.png);width:250px;height: 150px; margin-left:20px; " >
-			    	<input type='file' class="upl" style="padding: 70px 45px">
+			    	<input type='file' class="upl" name="image" style="padding: 70px 45px">
 			    </div>
 			     <img class="preview" style="max-width: 150px; max-height: 200px; margin: 20px">
 				</div>
@@ -132,7 +151,6 @@ $(function (){
 			  
 			  <div class="col-md-1 col-sm-1"></div>
 					</div>
-
 		<div class="row">
 			<div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
 				<button type="submit" class="btn btn-primary" style="margin: 50px 0px 50px">確認</button>
