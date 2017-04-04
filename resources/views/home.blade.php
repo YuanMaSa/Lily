@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="col-xs-6 col-sm-2 col-md-2">
-            <button type="button" class="btn btn-primary btn-sm" ><a style="color: #FFFFFF;text-decoration: none;" href="{{ url('upload') }}">上傳圖片</a></button>
+            <button type="button" class="btn btn-primary btn-sm" ><a style="color: #FFFFFF;text-decoration: none;" href="{{ url('s3-image-upload') }}">上傳圖片</a></button>
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">新增園區</button>
             <!-- Modal -->
             <form action="/address" method="post">

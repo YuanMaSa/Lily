@@ -31,7 +31,26 @@ $(function (){
 })
 </script>
 <div class="container">
-<form class="form-horizontal">
+ @if (count($errors) > 0)
+	 <div class="alert alert-danger">
+	    <strong>Whoops!</strong> There were some problems with your input.<br><br>
+		<ul>
+		  @foreach ($errors->all() as $error)
+		    <li>{{ $error }}</li>
+		  @endforeach
+		 </ul>
+	    </div>
+      @endif
+
+	  @if ($message = Session::get('success'))
+		<div class="alert alert-success alert-block">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+		        <strong>{{ $message }}</strong>
+		</div>
+		<img src="{{ Session::get('path') }}">
+	  @endif
+<form class="form-horizontal" action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
+{{ csrf_field() }}
 	<div class="row" style="margin-top: 200px;">
 		<div class="col-md-3 col-sm-0"></div>
 		<div class="col-md-6 col-sm-12">
@@ -106,7 +125,7 @@ $(function (){
 					<label  for="exampleInputEmail1">上傳檔案</label>
 				</div>
 				<div class="col-sm-7 control-label">
-				<input type='file' class="upl">
+				<input type='file' name="image" class="upl">
 				</div>
 			  </div>
 			   <div class="form-group">
@@ -116,6 +135,7 @@ $(function (){
 			  </div>
 		</div>
 		<div class="col-md-3 col-sm-0"></div>
+		<button type="submit" class="btn btn-success">Upload</button>
 	</div>
 </form>
 
