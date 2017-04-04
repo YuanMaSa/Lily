@@ -64,15 +64,20 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                  <h4 class="modal-title" id="myModalLabel">刪除會員</h4>
+                  <h4 class="modal-title" id="myModalLabel">刪除園區</h4>
                 </div>
                 <div class="modal-body">
                   <table class="table table-striped">
+                  
                   {{csrf_field()}}
           			{{method_field('DELETE')}}
               <tbody>
               <input type="hidden" name="id" value="{{$address->id}}">
               	<tr>
+                 <td>編號</td>
+                 <td>園區位址</td> 
+                </tr>
+                <tr>
                   <td>{{$address->id}}</td>
                   <td>{{$address->name}}</td>
                 </tr>
@@ -81,7 +86,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                  <button type="submit" action="AccountList" name="type" value="deleteMember" class="btn btn-primary">確認</button>
+                  <button type="submit" action="AccountList" name="type" value="deleteMember" class="btn btn-danger">確認 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
                 </div>
               </div>
             </div>
