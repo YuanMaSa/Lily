@@ -26,7 +26,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top" style="background-color:#97CBFF; padding: 10px">
             <div class="container">
                 <div class="navbar-header">
 
@@ -39,51 +39,89 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/') }}" style="font-size: 35px;color: #FFFFFF">
                         金針花辨識系統
                     </a>
                 </div>
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                <div class="collapse navbar-collapse" id="app-navbar-collapse" >
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right" style="background-color:#97CBFF;font-size: 17px">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                        @else
-                            <li><a href="{{ url('/home') }}">圖片瀏覽</a></li>
-                            <li><a href="{{ url('upload') }}">上傳圖片</a></li>
+                            <li><a href="{{ route('login') }}" style="color: #FFFFFF">Login</a></li>
+                        @else 
+                            <li><a data-toggle="modal" data-target="#myModal" style="color: #FFFFFF">新增園區</a></li>
+
+                            <li><a href="{{ url('upload') }}" style="color: #FFFFFF">上傳圖片</a></li>
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #FFFFFF">
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/address') }}" >園區檢視</a></li>
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();" >
                                             Logout
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none; color: #FFFFFF">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
                                 </ul>
                             </li>
-                        @endif
+                       
                     </ul>
+
                 </div>
             </div>
         </nav>
 
+ <!-- 新增園區彈跳視窗 -->
+         <form action="/address" method="post">
+            {{csrf_field()}}
+            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">新增農田地址</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" style="margin-top:5px" required>輸入名稱</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" name="name" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-primary">確認</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </form>
+        <!-- 新增園區彈跳視窗 -->
+        @endif
         @yield('content')
     </div>
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>

@@ -30,6 +30,7 @@ $(function (){
     
 })
 </script>
+
 <div class="container">
  @if (count($errors) > 0)
 	 <div class="alert alert-danger">
@@ -49,22 +50,24 @@ $(function (){
 		</div>
 		<img src="{{ Session::get('path') }}">
 	  @endif
-<form class="form-horizontal" action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
+
+<form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
 {{ csrf_field() }}
-	<div class="row" style="margin-top: 200px;">
-		<div class="col-md-3 col-sm-0"></div>
-		<div class="col-md-6 col-sm-12">
-			<div class="form-group">
-				<div class="col-sm-2 control-label ">
+	<div class="row" style="margin-top: 100px;">
+		<div class="col-md-1 col-sm-1"></div>
+
+		<div class="col-md-5 col-sm-11" style="border:2px #ccc solid;border-radius:10px;padding-top: 50px;padding-bottom: 30px">
+					<div class="form-group">
+				<div class="col-sm-3 control-label ">
 					<label  for="exampleInputEmail1">含水量</label>
 				</div>
 			    <div class="col-sm-7 control-label">
 			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="含水量">
 			    </div>
-			    <div class="col-sm-2 control-label">%</div>
+			    <div class="col-sm-1 control-label">%</div>
 			 </div>
 			 <div class="form-group">
-				<div class="col-sm-2 control-label ">
+				<div class="col-sm-3 control-label ">
 					<label  for="exampleInputEmail1">乾燥製程</label>
 				</div>
 			    <div class="col-sm-7 control-label">
@@ -77,16 +80,16 @@ $(function (){
 			    </div>
 			 </div>
 			  <div class="form-group">
-				<div class="col-sm-2 control-label ">
+				<div class="col-sm-3 control-label ">
 					<label  for="exampleInputEmail1">取樣時間</label>
 				</div>
 			    <div class="col-sm-7 control-label">
 			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="取樣時間">
 			    </div>
-			    <div class="col-sm-2 control-label">小時</div>
+			    <div class="col-sm-2 control-label" style="text-align: left;">小時</div>
 			 </div>
 			 <div class="form-group">
-				<div class="col-sm-2 control-label ">
+				<div class="col-sm-3 control-label ">
 					<label  for="exampleInputEmail1">L</label>
 				</div>
 			    <div class="col-sm-7 control-label">
@@ -94,7 +97,7 @@ $(function (){
 			    </div>
 			 </div>
 			 <div class="form-group">
-				<div class="col-sm-2 control-label ">
+				<div class="col-sm-3 control-label ">
 					<label  for="exampleInputEmail1">a</label>
 				</div>
 			    <div class="col-sm-7 control-label">
@@ -102,7 +105,7 @@ $(function (){
 			    </div>
 			 </div>
 			 <div class="form-group">
-				<div class="col-sm-2 control-label ">
+				<div class="col-sm-3 control-label ">
 					<label  for="exampleInputEmail1">b</label>
 				</div>
 			    <div class="col-sm-7 control-label">
@@ -110,7 +113,7 @@ $(function (){
 			    </div>
 			 </div>
 			  <div class="form-group">
-				<div class="col-sm-2 control-label ">
+				<div class="col-sm-3 control-label ">
 					<label  for="exampleInputEmail1">所屬園區</label>
 				</div>
 			    <div class="col-sm-7 control-label">
@@ -120,25 +123,44 @@ $(function (){
 					</select>
 			    </div>
 			 </div>
-			 <div class="form-group">
-			    <div class="col-sm-2 control-label ">
+			
+			
+		</div>
+		<div class="col-md-5 col-sm-0" >
+		
+		 <div class="form-group">
+
+		 
+			    <div class="col-sm-3 col-sm-offset-3 control-label ">
+			    
 					<label  for="exampleInputEmail1">上傳檔案</label>
 				</div>
-				<div class="col-sm-7 control-label">
-				<input type='file' name="image" class="upl">
 				</div>
-			  </div>
-			   <div class="form-group">
-			    <div class="col-sm-9 control-label ">
-			        <img class="preview" style="max-width: 300px; max-height: 300px;">
-				</div>
-			  </div>
-		</div>
-		<div class="col-md-3 col-sm-0"></div>
-		<button type="submit" class="btn btn-success">Upload</button>
-	</div>
-</form>
 
-</div>
+				<div class="form-group">
+		 
+			    <div class="col-sm-3 col-sm-offset-1 control-label " >
+			    <div style="background-image: url(img/cloud.png);width:250px;height: 150px; margin-left:20px; " >
+			    	<input type='file' class="upl" name="image" style="padding: 70px 45px">
+			    </div>
+			     <img class="preview" style="max-width: 150px; max-height: 200px; margin: 20px">
+				</div>
+				</div>
+				</div>  
+
+			  
+			  <div class="col-md-1 col-sm-1"></div>
+					</div>
+		<div class="row">
+			<div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
+				<button type="submit" class="btn btn-primary" style="margin: 50px 0px 50px">確認</button>
+			</div>
+ 		</div>
+
+		</form>
+
+			 
+		</div>
+	
 
 @endsection

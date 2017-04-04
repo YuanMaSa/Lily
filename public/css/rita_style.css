@@ -264,4 +264,11 @@ p {
     border-radius: 3px;
 }
 
+#DIV1{
+width:20%;
+background-image:url(img/cloud.jpg);　//插入背景圖片
+border: 3px;
+border-color: #0072E3 
+}
+
 

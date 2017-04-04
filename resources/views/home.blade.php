@@ -2,17 +2,12 @@
 
 @section('content')
 <div class="container">
+    
     <div class="row">
-        <div class="col-sm-0.5 col-md-0.5"></div>
-        <div class="col-xs-12 col-sm-10 col-md-10">
-            <div style="color:#6C6C6C; font-size: 50px;">金針花 </div>
-        </div>
-        <div class="col-sm-0.5 col-md-0.5"></div>
-    </div>
-    <div class="row">
-        <div class="col-sm-0.5 col-md-0.5"></div>
-        <div class="col-xs-6 col-sm-8 col-md-8">
-            <div class="btn-group" data-toggle="buttons">
+        <div class="col-sm-2 col-md-2"></div>
+        <div class="col-xs-12 col-sm-8 col-md-8">
+        <center>
+            <div class="btn-group" data-toggle="buttons" style="border: 2px;border-color: #C4E1FF">
                 <label class="btn btn-primary active btncolor">
                     <input type="radio" name="options" id="option1" autocomplete="off" checked=""> 全部all
                 </label>
@@ -26,7 +21,9 @@
                     <input type="radio" name="options" id="option4" autocomplete="off"> 園區分類
                 </label>
             </div>
+            </center>
         </div>
+
         <div class="col-xs-6 col-sm-2 col-md-2">
             <button type="button" class="btn btn-primary btn-sm" ><a style="color: #FFFFFF;text-decoration: none;" href="{{ url('s3-image-upload') }}">上傳圖片</a></button>
             <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">新增園區</button>
