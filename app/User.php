@@ -32,4 +32,7 @@ class User extends Authenticatable
     public function address(){
         return $this->hasMany(address::class);
     }
+    public function photodetail(){
+        return $this->hasMany(photodetail::class);
+    }
 }
