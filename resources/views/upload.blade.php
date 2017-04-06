@@ -53,47 +53,48 @@ $(function (){
 
 <form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
 {{ csrf_field() }}
+	<input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 	<div class="row" style="margin-top: 100px;">
 		<div class="col-md-1 col-sm-1"></div>
 
 		<div class="col-md-5 col-sm-11" style="border:2px #ccc solid;border-radius:10px;padding-top: 50px;padding-bottom: 30px">
 					<div class="form-group">
 				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1">含水量</label>
+					<label  for="exampleInputEmail1" >含水量</label>
 				</div>
 			    <div class="col-sm-7 control-label">
-			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="含水量">
+			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="含水量" name="water">
 			    </div>
 			    <div class="col-sm-1 control-label">%</div>
 			 </div>
 			 <div class="form-group">
 				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1">乾燥製程</label>
+					<label  for="exampleInputEmail1" name="process">乾燥製程</label>
 				</div>
 			    <div class="col-sm-7 control-label">
 			    	<select class="form-control">
-					  <option>日曬製程</option>
-					  <option>低溫製程</option>
-					  <option>熱風製程</option>
-					  <option>其他製程</option>
+					  <<option value="1"></option>>日曬製程</option>
+					  <<option value="2"></option>>低溫製程</option>
+					  <<option value="3"></option>>熱風製程</option>
+					  <<option value="4"></option>>其他製程</option>
 					</select>
 			    </div>
 			 </div>
 			  <div class="form-group">
 				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1">取樣時間</label>
+					<label  for="exampleInputEmail1" >取樣時間</label>
 				</div>
 			    <div class="col-sm-7 control-label">
-			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="取樣時間">
+			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="取樣時間" name="take_time">
 			    </div>
 			    <div class="col-sm-2 control-label" style="text-align: left;">小時</div>
 			 </div>
 			 <div class="form-group">
 				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1">L</label>
+					<label  for="exampleInputEmail1" >L</label>
 				</div>
 			    <div class="col-sm-7 control-label">
-			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="L值">
+			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="L值" name="L_value">
 			    </div>
 			 </div>
 			 <div class="form-group">
@@ -101,7 +102,7 @@ $(function (){
 					<label  for="exampleInputEmail1">a</label>
 				</div>
 			    <div class="col-sm-7 control-label">
-			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="a值">
+			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="a值" name="a_value">
 			    </div>
 			 </div>
 			 <div class="form-group">
@@ -109,17 +110,17 @@ $(function (){
 					<label  for="exampleInputEmail1">b</label>
 				</div>
 			    <div class="col-sm-7 control-label">
-			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="b值">
+			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="b值" name="b_value">
 			    </div>
 			 </div>
 			  <div class="form-group">
 				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1">所屬園區</label>
+					<label  for="exampleInputEmail1" name="address">所屬園區</label>
 				</div>
 			    <div class="col-sm-7 control-label">
 			    	<select class="form-control">
-					  <option>瑞穗段</option>
-					  <option>花蓮段</option>
+					  <<option value="1"></option>>瑞穗段</option>
+					  <<option value="2"></option>>花蓮段</option>
 					</select>
 			    </div>
 			 </div>
