@@ -621,7 +621,8 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2017-04-03 13:07:39"
+
+            "time": "2017-04-03T13:07:39+00:00"
         },
         {
             "name": "laravel/socialite",
