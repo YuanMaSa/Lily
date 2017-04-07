@@ -57,7 +57,7 @@ $(function (){
        <div class="col-sm-7 control-label">
         <select class="form-control" name="process_id">
     @foreach ($processes as $process)
-       <option value="1">{{$process->method}}</option>
+       <option value="{{$process->id}}">{{$process->method}}</option>
        @endforeach
      </select>
        </div>
@@ -102,7 +102,7 @@ $(function (){
        <div class="col-sm-7 control-label">
         <select class="form-control" name="address_id">
         @foreach ($addresses as $address)
-       <option value="1">{{$address->name}}</option>
+       <option value="{{$addess->id}}">{{$address->name}}</option>
        @endforeach
      </select>
        </div>
