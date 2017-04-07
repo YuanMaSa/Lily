@@ -41,11 +41,17 @@ class S3ImageController extends Controller
     
     public function imageUploadPost(Request $request)
     {
-    	echo "!";
-        return view('upload');
-    }
-    public function store(Request $request)
-    {
+    	$this->validate($request, [
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);//限制照片副檔名及大小
+        $imageName = time().'.'.$request->image->getClientOriginalExtension();
+        $image = $request->file('image');
+        $t = Storage::disk('s3')->put($imageName, file_get_contents($image), 'public');
+        $imageName = Storage::disk('s3')->url($imageName);
+
+        // return back()
+        //     ->with('success','Image Uploaded successfully.')
+        //     ->with('path',$imageName);
         $photodetail=new photodetail;
         $photodetail->water = $request->water;
         $photodetail->take_time = $request->take_time;
@@ -54,11 +60,25 @@ class S3ImageController extends Controller
         $photodetail->b_value = $request->b_value;
         $photodetail->process_id = $request->process_id;
         $photodetail->address_id = $request->address_id;
+        $photodetail->photo_url=$imageName;//將照片網址存入photo_url中
         $photodetail->save(); 
-
-        return redirect('home');
-
+        return view('home');
     }
+    // public function store(Request $request)
+    // {
+    //     $photodetail=new photodetail;
+    //     $photodetail->water = $request->water;
+    //     $photodetail->take_time = $request->take_time;
+    //     $photodetail->L_value = $request->L_value;
+    //     $photodetail->a_value = $request->a_value;
+    //     $photodetail->b_value = $request->b_value;
+    //     $photodetail->process_id = $request->process_id;
+    //     $photodetail->address_id = $request->address_id;
+    //     $photodetail->save(); 
+
+    //     return redirect('home');
+
+    // }
 
     /**
      * Display the specified resource.

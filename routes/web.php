@@ -36,4 +36,4 @@ Route::resource('role', 'RoleController');
 Route::get('s3-image-upload','S3ImageController@imageUpload');
 Route::resource('s3-image-upload','S3ImageController');
 
-
+Route::post('s3-image-upload','S3ImageController@imageUploadPost');
