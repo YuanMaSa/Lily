@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    
     <div class="row">
         <div class="col-sm-2 col-md-2"></div>
         <div class="col-xs-12 col-sm-8 col-md-8">
@@ -25,8 +24,6 @@
         </div>
 
         <div class="col-sm-2 col-md-2"></div>
-           
-        
     </div>
     <!-- heeader 按鈕 -->
     <div class="row" style="margin:50px 20px 30px 20px">
