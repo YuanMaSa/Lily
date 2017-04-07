@@ -36,7 +36,7 @@ $(function (){
 <form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
 
 {{ csrf_field() }}
-	<input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+	
 	<div class="row" style="margin-top: 100px;">
 		<div class="col-md-1 col-sm-1"></div>
 
@@ -52,14 +52,14 @@ $(function (){
 			 </div>
 			 <div class="form-group">
 				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1" name="process">乾燥製程</label>
+					<label  for="exampleInputEmail1">乾燥製程</label>
 				</div>
 			    <div class="col-sm-7 control-label">
-			    	<select class="form-control">
-					  <<option value="1"></option>>日曬製程</option>
-					  <<option value="2"></option>>低溫製程</option>
-					  <<option value="3"></option>>熱風製程</option>
-					  <<option value="4"></option>>其他製程</option>
+			    	<select class="form-control" name="process_id">
+					  <option value="1"></option>日曬製程</option>
+					  <option value="2"></option>低溫製程</option>
+					  <option value="3"></option>熱風製程</option>
+					  <option value="4"></option>其他製程</option>
 					</select>
 			    </div>
 			 </div>
@@ -98,12 +98,12 @@ $(function (){
 			 </div>
 			  <div class="form-group">
 				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1" name="address">所屬園區</label>
+					<label  for="exampleInputEmail1" >所屬園區</label>
 				</div>
 			    <div class="col-sm-7 control-label">
-			    	<select class="form-control">
-					  <<option value="1"></option>>瑞穗段</option>
-					  <<option value="2"></option>>花蓮段</option>
+			    	<select class="form-control" name="address_id">
+					  <option value="1"></option>瑞穗段</option>
+					  <option value="2"></option>花蓮段</option>
 					</select>
 			    </div>
 			 </div>
