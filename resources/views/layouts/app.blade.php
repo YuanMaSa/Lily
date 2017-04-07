@@ -57,7 +57,7 @@
                         @else 
                             <li><a data-toggle="modal" data-target="#myModal" style="color: #FFFFFF">新增園區</a></li>
 
-                            <li><a href="{{ url('upload') }}" style="color: #FFFFFF">上傳圖片</a></li>
+                            <li><a href="{{ url('s3-image-upload') }}" style="color: #FFFFFF">上傳圖片</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #FFFFFF">
                                     {{ Auth::user()->name }} <span class="caret"></span>

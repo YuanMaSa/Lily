@@ -34,5 +34,5 @@ Route::resource('address', 'AddressController');
 //Role 的增刪查改
 Route::resource('role', 'RoleController');
 Route::get('s3-image-upload','S3ImageController@imageUpload');
-Route::post('s3-image-upload','S3ImageController@imageUploadPost');
+Route::resource('s3-image-upload','S3ImageController');
 

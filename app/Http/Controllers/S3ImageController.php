@@ -3,6 +3,12 @@
 namespace LilyFlower\Http\Controllers;
 
 use Illuminate\Http\Request;
+use LilyFlower\photodetail;
+use LilyFlower\address;
+use LilyFlower\process;
+use LilyFlower\User;
+use Auth;
+
 use Storage;
 
 class S3ImageController extends Controller
@@ -13,6 +19,15 @@ class S3ImageController extends Controller
     *
     * @return void
     */
+
+    public function index()
+    {
+        $user_id=Auth::id();
+        $addresses = User::find($user_id)->address;//查詢使用者的園區
+        $processes=process::all();
+        // echo $user_id;
+        return view('upload',compact('addresses','processes'));//return the file names index in address folder
+    }
     public function imageUpload()
     {
     	return view('upload');
@@ -38,11 +53,10 @@ class S3ImageController extends Controller
         $photodetail->L_value = $request->L_value;
         $photodetail->a_value = $request->a_value;
         $photodetail->b_value = $request->b_value;
-        $photodetail->photo_url = $request->photo_url;
         $photodetail->process_id = $request->process_id;
-        $photodetail->address_id = $request->address_id
-        $address->save(); 
-        return redirect('upload');
+        $photodetail->address_id = $request->address_id;
+        $photodetail->save(); 
+        return redirect('home');
     }
 
     /**

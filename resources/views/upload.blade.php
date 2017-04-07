@@ -36,115 +36,115 @@ $(function (){
 <form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
 
 {{ csrf_field() }}
-	<input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-	<div class="row" style="margin-top: 100px;">
-		<div class="col-md-1 col-sm-1"></div>
+ 
+ <div class="row" style="margin-top: 100px;">
+  <div class="col-md-1 col-sm-1"></div>
 
-		<div class="col-md-5 col-sm-11" style="border:2px #ccc solid;border-radius:10px;padding-top: 50px;padding-bottom: 30px">
-					<div class="form-group">
-				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1" >含水量</label>
-				</div>
-			    <div class="col-sm-7 control-label">
-			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="含水量" name="water">
-			    </div>
-			    <div class="col-sm-1 control-label">%</div>
-			 </div>
-			 <div class="form-group">
-				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1" name="process">乾燥製程</label>
-				</div>
-			    <div class="col-sm-7 control-label">
-			    	<select class="form-control">
-					  <<option value="1"></option>>日曬製程</option>
-					  <<option value="2"></option>>低溫製程</option>
-					  <<option value="3"></option>>熱風製程</option>
-					  <<option value="4"></option>>其他製程</option>
-					</select>
-			    </div>
-			 </div>
-			  <div class="form-group">
-				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1" >取樣時間</label>
-				</div>
-			    <div class="col-sm-7 control-label">
-			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="取樣時間" name="take_time">
-			    </div>
-			    <div class="col-sm-2 control-label" style="text-align: left;">小時</div>
-			 </div>
-			 <div class="form-group">
-				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1" >L</label>
-				</div>
-			    <div class="col-sm-7 control-label">
-			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="L值" name="L_value">
-			    </div>
-			 </div>
-			 <div class="form-group">
-				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1">a</label>
-				</div>
-			    <div class="col-sm-7 control-label">
-			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="a值" name="a_value">
-			    </div>
-			 </div>
-			 <div class="form-group">
-				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1">b</label>
-				</div>
-			    <div class="col-sm-7 control-label">
-			    	<input type="number" class="form-control" id="exampleInputEmail1" placeholder="b值" name="b_value">
-			    </div>
-			 </div>
-			  <div class="form-group">
-				<div class="col-sm-3 control-label ">
-					<label  for="exampleInputEmail1" name="address">所屬園區</label>
-				</div>
-			    <div class="col-sm-7 control-label">
-			    	<select class="form-control">
-					  <<option value="1"></option>>瑞穗段</option>
-					  <<option value="2"></option>>花蓮段</option>
-					</select>
-			    </div>
-			 </div>
-			
-			
-		</div>
-		<div class="col-md-5 col-sm-0" >
-		
-		 <div class="form-group">
+  <div class="col-md-5 col-sm-11" style="border:2px #ccc solid;border-radius:10px;padding-top: 50px;padding-bottom: 30px">
+     <div class="form-group">
+    <div class="col-sm-3 control-label ">
+     <label  for="exampleInputEmail1" >含水量</label>
+    </div>
+       <div class="col-sm-7 control-label">
+        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="含水量" name="water">
+       </div>
+       <div class="col-sm-1 control-label">%</div>
+    </div>
+    <div class="form-group">
+    <div class="col-sm-3 control-label ">
+     <label  for="exampleInputEmail1">乾燥製程</label>
+    </div>
+       <div class="col-sm-7 control-label">
+        <select class="form-control" name="process_id">
+      @foreach ($processes as $process)
+       <option value="1">{{$process->method}}</option>
+       @endforeach
+     </select>
+       </div>
+    </div>
+     <div class="form-group">
+    <div class="col-sm-3 control-label ">
+     <label  for="exampleInputEmail1" >取樣時間</label>
+    </div>
+       <div class="col-sm-7 control-label">
+        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="取樣時間" name="take_time">
+       </div>
+       <div class="col-sm-2 control-label" style="text-align: left;">小時</div>
+    </div>
+    <div class="form-group">
+    <div class="col-sm-3 control-label ">
+     <label  for="exampleInputEmail1" >L</label>
+    </div>
+       <div class="col-sm-7 control-label">
+        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="L值" name="L_value">
+       </div>
+    </div>
+    <div class="form-group">
+    <div class="col-sm-3 control-label ">
+     <label  for="exampleInputEmail1">a</label>
+    </div>
+       <div class="col-sm-7 control-label">
+        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="a值" name="a_value">
+       </div>
+    </div>
+    <div class="form-group">
+    <div class="col-sm-3 control-label ">
+     <label  for="exampleInputEmail1">b</label>
+    </div>
+       <div class="col-sm-7 control-label">
+        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="b值" name="b_value">
+       </div>
+    </div>
+     <div class="form-group">
+    <div class="col-sm-3 control-label ">
+     <label  for="exampleInputEmail1" >所屬園區</label>
+    </div>
+       <div class="col-sm-7 control-label">
+        <select class="form-control" name="address_id">
+        @foreach ($addresses as $address)
+       <option value="1">{{$address->name}}</option>
+       @endforeach
+     </select>
+       </div>
+    </div>
+   
+   
+  </div>
+  <div class="col-md-5 col-sm-0" >
+  
+   <div class="form-group">
 
-		 
-			    <div class="col-sm-3 col-sm-offset-3 control-label ">
-			    
-					<label  for="exampleInputEmail1">上傳檔案</label>
-				</div>
-				</div>
+   
+       <div class="col-sm-3 col-sm-offset-3 control-label ">
+       
+     <label  for="exampleInputEmail1">上傳檔案</label>
+    </div>
+    </div>
 
-				<div class="form-group">
-		 
-			    <div class="col-sm-3 col-sm-offset-1 control-label " >
-			    <div style="background-image: url(img/cloud.png);width:250px;height: 150px; margin-left:20px; " >
-			    	<input type='file' class="upl" name="image" style="padding: 70px 45px">
-			    </div>
-			     <img class="preview" style="max-width: 150px; max-height: 200px; margin: 20px">
-				</div>
-				</div>
-				</div>  
+    <div class="form-group">
+   
+       <div class="col-sm-3 col-sm-offset-1 control-label " >
+       <div style="background-image: url(img/cloud.png);width:250px;height: 150px; margin-left:20px; " >
+        <input type='file' class="upl" name="image" style="padding: 70px 45px">
+       </div>
+        <img class="preview" style="max-width: 150px; max-height: 200px; margin: 20px">
+    </div>
+    </div>
+    </div>  
 
-			  
-			  <div class="col-md-1 col-sm-1"></div>
-					</div>
-		<div class="row">
-			<div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
-				<button type="submit" class="btn btn-primary" style="margin: 50px 0px 50px">確認</button>
-			</div>
- 		</div>
+     
+     <div class="col-md-1 col-sm-1"></div>
+     </div>
+  <div class="row">
+   <div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
+    <button type="submit" class="btn btn-primary" style="margin: 50px 0px 50px">確認</button>
+   </div>
+   </div>
 
-		</form>
+  </form>
 
-			 
-		</div>
-	
+    
+  </div>
+ 
 
 @endsection
