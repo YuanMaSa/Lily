@@ -36,6 +36,7 @@ $(function (){
 <form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
 
 {{ csrf_field() }}
+
  
  <div class="row" style="margin-top: 100px;">
   <div class="col-md-1 col-sm-1"></div>
@@ -113,7 +114,6 @@ $(function (){
   <div class="col-md-5 col-sm-0" >
   
    <div class="form-group">
-
    
        <div class="col-sm-3 col-sm-offset-3 control-label ">
        

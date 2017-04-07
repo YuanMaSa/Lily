@@ -9,6 +9,7 @@ use LilyFlower\process;
 use LilyFlower\User;
 use Auth;
 
+use LilyFlower\photodetail;//use address model
 use Storage;
 
 class S3ImageController extends Controller
@@ -44,7 +45,6 @@ class S3ImageController extends Controller
     	echo "!";
         return view('upload');
     }
-
     public function store(Request $request)
     {
         $photodetail=new photodetail;
@@ -56,7 +56,9 @@ class S3ImageController extends Controller
         $photodetail->process_id = $request->process_id;
         $photodetail->address_id = $request->address_id;
         $photodetail->save(); 
+
         return redirect('home');
+
     }
 
     /**
