@@ -9,7 +9,6 @@ use LilyFlower\process;
 use LilyFlower\User;
 use Auth;
 
-use LilyFlower\photodetail;//use address model
 use Storage;
 
 class S3ImageController extends Controller

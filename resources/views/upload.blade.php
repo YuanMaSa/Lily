@@ -36,7 +36,6 @@ $(function (){
 <form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
 
 {{ csrf_field() }}
-
  
  <div class="row" style="margin-top: 100px;">
   <div class="col-md-1 col-sm-1"></div>
@@ -57,7 +56,7 @@ $(function (){
     </div>
        <div class="col-sm-7 control-label">
         <select class="form-control" name="process_id">
-      @foreach ($processes as $process)
+    @foreach ($processes as $process)
        <option value="1">{{$process->method}}</option>
        @endforeach
      </select>
@@ -114,6 +113,7 @@ $(function (){
   <div class="col-md-5 col-sm-0" >
   
    <div class="form-group">
+
    
        <div class="col-sm-3 col-sm-offset-3 control-label ">
        
