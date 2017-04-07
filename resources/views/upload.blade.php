@@ -32,26 +32,9 @@ $(function (){
 </script>
 
 <div class="container">
- @if (count($errors) > 0)
-	 <div class="alert alert-danger">
-	    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-		<ul>
-		  @foreach ($errors->all() as $error)
-		    <li>{{ $error }}</li>
-		  @endforeach
-		 </ul>
-	    </div>
-      @endif
-
-	  @if ($message = Session::get('success'))
-		<div class="alert alert-success alert-block">
-			<button type="button" class="close" data-dismiss="alert">×</button>
-		        <strong>{{ $message }}</strong>
-		</div>
-		<img src="{{ Session::get('path') }}">
-	  @endif
 
 <form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
+
 {{ csrf_field() }}
 	<input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 	<div class="row" style="margin-top: 100px;">
