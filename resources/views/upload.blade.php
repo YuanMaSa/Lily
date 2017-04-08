@@ -147,9 +147,7 @@ $(function (){
         <img class="preview" style="max-width: 150px; max-height: 200px; margin: 20px">
     </div>
     </div>
-    </div>  
-
-     
+    </div>     
      <div class="col-md-1 col-sm-1"></div>
      </div>
   <div class="row">

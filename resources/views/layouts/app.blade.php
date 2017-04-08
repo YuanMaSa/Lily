@@ -54,7 +54,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}" style="color: #FFFFFF">Login</a></li>
-                        @else 
+                        @else
                             <li><a data-toggle="modal" data-target="#myModal" style="color: #FFFFFF">新增園區</a></li>
 
                             <li><a href="{{ url('s3-image-upload') }}" style="color: #FFFFFF">上傳圖片</a></li>
@@ -79,7 +79,7 @@
 
                                 </ul>
                             </li>
-                       
+
                     </ul>
 
                 </div>
