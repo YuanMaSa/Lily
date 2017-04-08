@@ -41,18 +41,18 @@ return [
 
         'mysql' => [
                 'read' => [
-                'host' => '127.0.0.1',
+                'host' => 'lily.ckqe7slqd9av.ap-northeast-1.rds.amazonaws.com',
                  'port' =>  '3306',
                     ],
         'write' => [
-        'host' => '127.0.0.1',
+        'host' => 'lily.ckqe7slqd9av.ap-northeast-1.rds.amazonaws.com',
                          'port' =>  '3306',
                     ],
 
          'driver'    => 'mysql',
          'database'  => 'LilyTest',
-         'username'  => 'root',
-        'password'  => '',
+         'username'  => 'lily',
+        'password'  => '12345678',
          'charset'   => 'utf8',
          'collation' => 'utf8_unicode_ci',
           'prefix'    => '',
