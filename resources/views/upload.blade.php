@@ -13,7 +13,7 @@ $(function (){
 
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-            
+
             reader.onload = function (e) {
                 $('.preview').attr('src', e.target.result);
                 var KB = format_float(e.total / 1024, 2);
@@ -27,21 +27,12 @@ $(function (){
     $("body").on("change", ".upl", function (){
         preview(this);
     })
-    
+
 })
 </script>
 
 <div class="container">
- @if (count($errors) > 0)
-	 <div class="alert alert-danger">
-	    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-		<ul>
-		  @foreach ($errors->all() as $error)
-		    <li>{{ $error }}</li>
-		  @endforeach
-		 </ul>
-	    </div>
-      @endif
+
 
 	  @if ($message = Session::get('success'))
 		<div class="alert alert-success alert-block">
@@ -53,7 +44,7 @@ $(function (){
 <form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
 
 {{ csrf_field() }}
- 
+
  <div class="row" style="margin-top: 100px;">
   <div class="col-md-1 col-sm-1"></div>
 
@@ -124,22 +115,22 @@ $(function (){
      </select>
        </div>
     </div>
-   
-   
+
+
   </div>
   <div class="col-md-5 col-sm-0" >
-  
+
    <div class="form-group">
 
-   
+
        <div class="col-sm-3 col-sm-offset-3 control-label ">
-       
+
      <label  for="exampleInputEmail1">上傳檔案</label>
     </div>
     </div>
 
     <div class="form-group">
-   
+
        <div class="col-sm-3 col-sm-offset-1 control-label " >
        <div style="background-image: url(img/cloud.png);width:250px;height: 150px; margin-left:20px; " >
         <input type='file' class="upl" name="image" style="padding: 70px 45px">
@@ -147,7 +138,7 @@ $(function (){
         <img class="preview" style="max-width: 150px; max-height: 200px; margin: 20px">
     </div>
     </div>
-    </div>     
+    </div>
      <div class="col-md-1 col-sm-1"></div>
      </div>
   <div class="row">
@@ -158,8 +149,8 @@ $(function (){
 
   </form>
 
-    
+
   </div>
- 
+
 
 @endsection
