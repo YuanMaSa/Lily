@@ -31,7 +31,7 @@
             background-size: cover;">
 <div >
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top" style="background-color:#3C3C3C    ; padding: 10px">
+        <nav class="navbar navbar-default navbar-static-top" style="background-color:#3770A9    ; padding: 10px">
             <div class="container">
                 <div class="navbar-header">
 
@@ -55,7 +55,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right" style="background-color:#3C3C3C ;font-size: 17px">
+                    <ul class="nav navbar-nav navbar-right" style="background-color:#3770A9 ;font-size: 17px">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li style="background-image: url(img/cccloud.png);width: 90px;height: 55px"><a href="{{ route('login') }}" style="color: #FFFFFF;padding:17px 23px"> Login</a></li>
