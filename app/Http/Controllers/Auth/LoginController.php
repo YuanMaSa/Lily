@@ -57,7 +57,7 @@ class LoginController extends Controller
         $authUser = $this->createUser($user);
 
         Auth::login($authUser,true);
-        return view('home');
+        return redirect('home');
         // $user->token;
 
     }

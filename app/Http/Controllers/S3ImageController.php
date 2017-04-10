@@ -25,12 +25,13 @@ class S3ImageController extends Controller
         $user_id=Auth::id();
         $addresses = User::find($user_id)->address;//查詢使用者的園區
         $processes=process::all();
+        $photodetails=photodetail::all();
         // echo $user_id;
-        return view('upload',compact('addresses','processes'));//return the file names index in address folder
+        return view('upload',compact('addresses','processes','photodetails'));//return the file names index in address folder
     }
     public function imageUpload()
     {
-    	return view('upload');
+    	return redirect('upload');
     }
 
     /**
@@ -62,13 +63,14 @@ class S3ImageController extends Controller
         $photodetail->L_value = $request->L_value;
         $photodetail->a_value = $request->a_value;
         $photodetail->b_value = $request->b_value;
+        $photodetail->user_id = $request->user_id;
         $photodetail->process_id = $request->process_id;
         $photodetail->address_id = $request->address_id;
         $photodetail->photo_url=$imageName;//將照片網址存入photo_url中
          echo "6";
         $photodetail->save();
          echo "7";
-        return view('home');
+        return redirect('home');
     }
     // public function store(Request $request)
     // {

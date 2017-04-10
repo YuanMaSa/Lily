@@ -244,12 +244,18 @@ p {
     color: #fff;
     background-color: #66B3FF;
     border-color:#0080FF;
+    transform: scale(1.3,1.3);
+    z-index: 5;
+
 }
 
 .btn-primary:active:hover, .btn-primary.active:hover, .open > .dropdown-toggle.btn-primary:hover, .btn-primary:active:focus, .btn-primary.active:focus, .open > .dropdown-toggle.btn-primary:focus, .btn-primary:active.focus, .btn-primary.active.focus, .open > .dropdown-toggle.btn-primary.focus {
     color: #fff;
    background-color: #66B3FF;
     border-color: #0080FF;
+    transform: scale(1.3,1.3);
+    z-index: 5;
+
 }
 
 .btn {
@@ -262,13 +268,26 @@ p {
     font-size: 12px;
     line-height: 1.5;
     border-radius: 3px;
+
 }
 
-#DIV1{
-width:20%;
-background-image:url(img/cloud.jpg);　//插入背景圖片
-border: 3px;
-border-color: #0072E3 
-}
+.btn1{
+  color: #be607e;
+    text-shadow: 0 1px 0 #de8ba5;
+    border-color: #e499b0;
+    background-color: #e67b9c;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    padding: 30px;
+    border-radius: 50%;
+    border-width: 8px;
+    border-style: solid;
 
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #3C3C3C;
+}
+ 
 

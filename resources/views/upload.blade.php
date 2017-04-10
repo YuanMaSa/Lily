@@ -52,13 +52,13 @@ $(function (){
 		<img src="{{ Session::get('path') }}">
 	  @endif
 <form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
-
 {{ csrf_field() }}
 
  <div class="row" style="margin-top: 100px;">
   <div class="col-md-1 col-sm-1"></div>
+<input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
-  <div class="col-md-5 col-sm-11" style="border:2px #ccc solid;border-radius:10px;padding-top: 50px;padding-bottom: 30px">
+  <div class="col-md-5 col-sm-11" style="border:2px #005AB5 solid;border-radius:10px;padding-top: 50px;padding-bottom: 30px">
      <div class="form-group">
     <div class="col-sm-3 control-label ">
      <label  for="exampleInputEmail1" >含水量</label>
@@ -142,7 +142,7 @@ $(function (){
     <div class="form-group">
 
        <div class="col-sm-3 col-sm-offset-1 control-label " >
-       <div style="background-image: url(img/cloud.png);width:250px;height: 150px; margin-left:20px; " >
+       <div style="background-image: url(img/cloud.png);width:250px;height: 150px; margin-left:50px;background-repeat: no-repeat; " >
         <input type='file' class="upl" name="image" style="padding: 70px 45px">
        </div>
         <img class="preview" style="max-width: 150px; max-height: 200px; margin: 20px">

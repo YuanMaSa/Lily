@@ -24,9 +24,14 @@
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
 </head>
-<body>
+<body  style="background-image: url(img/sky1.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: top;
+            background-size: cover;">
+<div >
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top" style="background-color:#97CBFF; padding: 10px">
+        <nav class="navbar navbar-default navbar-static-top" style="background-color:#3C3C3C    ; padding: 10px">
             <div class="container">
                 <div class="navbar-header">
 
@@ -50,17 +55,22 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right" style="background-color:#97CBFF;font-size: 17px">
+                    <ul class="nav navbar-nav navbar-right" style="background-color:#3C3C3C ;font-size: 17px">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}" style="color: #FFFFFF">Login</a></li>
-                        @else
-                            <li><a data-toggle="modal" data-target="#myModal" style="color: #FFFFFF">新增園區</a></li>
+                            <li style="background-image: url(img/cccloud.png);width: 90px;height: 55px"><a href="{{ route('login') }}" style="color: #FFFFFF;padding:17px 23px"> Login</a></li>
+                            </ul>
+                            </nav>
+                        @else 
+                        <li ><a a href="{{ url('/home') }}" style="color: #FFFFFF"><img src="img/cccloud.png" style="width:45px">瀏覽圖片</a></li>
 
-                            <li><a href="{{ url('s3-image-upload') }}" style="color: #FFFFFF">上傳圖片</a></li>
-                            <li class="dropdown">
+                       
+                            <li ><a data-toggle="modal" data-target="#myModal" style="color: #FFFFFF"> <img src="img/cccloud.png" style="width:45px">新增園區</a></li>
+
+                            <li ><a href="{{ url('s3-image-upload') }}" style="color: #FFFFFF"><img src="img/cccloud.png" style="width:45px">上傳圖片</a></li>
+                            <li class="dropdown" >
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #FFFFFF">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                   <img src="img/cccloud.png" style="width:45px"> {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
@@ -79,7 +89,7 @@
 
                                 </ul>
                             </li>
-
+                       
                     </ul>
 
                 </div>
@@ -121,9 +131,17 @@
         @endif
         @yield('content')
     </div>
-
-
+</div>
+</body>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-</body>
+<!--
+<footer>
+
+    <img src="img/06.png" style="margin:80px 0px 0px auto;max-width: 35%;" >
+   
+   
+</footer>
+-->
+
 </html>

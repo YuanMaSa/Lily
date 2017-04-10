@@ -38,6 +38,7 @@ return [
     'client_id' => '361357565621-uovqiptki6cegeur45lmhesu3j4c4vvv.apps.googleusercontent.com',
     'client_secret' => '_B4zNAy--af1DjACTjTRauDi',
     'redirect' => 'http://twlilyflower.tk/auth/google/callback',
+
     ],
 
 ];

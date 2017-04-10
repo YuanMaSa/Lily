@@ -3,6 +3,12 @@
 namespace LilyFlower\Http\Controllers;
 
 use Illuminate\Http\Request;
+use LilyFlower\photodetail;
+use LilyFlower\address;
+use LilyFlower\process;
+use LilyFlower\User;
+use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -23,6 +29,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $user_id=Auth::id();
+        $photodetails =DB::table('photodetails')
+            ->join('processes', 'process_id', '=', 'processes.id')
+            ->select('processes.method','water','photodetails.created_at','photo_url')
+            ->get();
+        $processes=process::all();
+        $addresses =address::all();
+        return view('home',compact('addresses','processes','photodetails'));
     }
 }
