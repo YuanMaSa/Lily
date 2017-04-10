@@ -126,8 +126,8 @@ $(function (){
        </div>
     </div>
      <div class="form-group">
-    <div class="col-sm-3 control-label ">
-     <label  for="exampleInputEmail1" style="color: red;">*所屬園區若為空白，請先新增園區</label>
+    <div class="col-sm-10 control-label ">
+     <label  for="exampleInputEmail1" style="color: rgba(255, 0, 0, 0.54);">*所屬園區若為空白，請先新增園區</label>
     </div>
     </div>
 
