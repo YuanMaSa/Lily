@@ -8,6 +8,7 @@ use LilyFlower\address;
 use LilyFlower\process;
 use LilyFlower\User;
 use Auth;
+use DB;
 
 class HomeController extends Controller
 {
@@ -28,8 +29,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+
         $user_id=Auth::id();
-        $photodetails = User::find($user_id)->photodetail;
+        $photodetails =DB::table('photodetails')
+            ->join('processes', 'process_id', '=', 'processes.id')
+            ->select('processes.method','water','photodetails.created_at','photo_url')
+            ->get();
         $processes=process::all();
         $addresses =address::all();
         return view('home',compact('addresses','processes','photodetails'));

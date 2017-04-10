@@ -285,5 +285,9 @@ p {
     border-style: solid;
 
 }
-
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #3C3C3C;
+}
+ 
 

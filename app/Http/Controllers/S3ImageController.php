@@ -31,7 +31,7 @@ class S3ImageController extends Controller
     }
     public function imageUpload()
     {
-    	return view('upload');
+    	return redirect('upload');
     }
 
     /**
@@ -70,7 +70,7 @@ class S3ImageController extends Controller
          echo "6";
         $photodetail->save();
          echo "7";
-        return view('home');
+        return redirect('home');
     }
     // public function store(Request $request)
     // {

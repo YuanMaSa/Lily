@@ -40,15 +40,14 @@
 {{ csrf_field() }}
  <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
-@foreach ($photodetails as $photodetail)
-@foreach ($processes as $process)
     <div class="row" style="margin:50px 20px 30px 20px">
+    @foreach ($photodetails as $photodetail)
         <div class="col-xs-12 col-sm-3 col-md-3">
-            <img src="img/001.JPG" alt="..." class="img-thumbnail">
+            <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
             <div class="thumbnail">
                 <div class="caption">
                     <p>含水量：{{$photodetail->water}} %</p>
-                    <p>乾燥製程：{{$process->photo}}</p>
+                    <p>乾燥製程：{{$photodetail->method}}</p>
                     <p>日期：{{$photodetail->created_at}}</p>
                     <!---
         <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
@@ -56,48 +55,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 col-md-3">
-            <img src="img/002.jpg" alt="..." class="img-thumbnail">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p>含水量：100 %</p>
-                    <p>乾燥製程：風乾</p>
-                    <p>日期：2017-02-02</p>
-                    <!---
-        <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
-        -->
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3 col-md-3">
-            <img src="img/003.jpg" alt="..." class="img-thumbnail">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p>含水量：100 %</p>
-                    <p>乾燥製程：風乾</p>
-                    <p>日期：2017-02-02</p>
-                    <!---
-        <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
-        -->
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-3 col-md-3">
-            <img src="img/004.jpg" alt="..." class="img-thumbnail">
-            <div class="thumbnail">
-                <div class="caption">
-                    <p>含水量：100 %</p>
-                    <p>乾燥製程：風乾</p>
-                    <p>日期：2017-02-02</p>
-                    <!---
-        <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
-        -->
-                </div>
-            </div>
-        </div>
+         @endforeach
     </div>
-    @endforeach
-    @endforeach
+   
     </form>
 </div>
 
