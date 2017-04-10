@@ -54,12 +54,14 @@
                     <ul class="nav navbar-nav navbar-right" style="background-color:#97CBFF;font-size: 17px">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
+
                             <li style="background-image: url(img/cccloud.png);width: 90px;height: 55px"><a href="{{ route('login') }}" style="color: #FFFFFF;padding:17px 23px"> Login</a></li>
                             </ul>
                             </nav>
                         @else 
                        
                             <li ><a data-toggle="modal" data-target="#myModal" style="color: #FFFFFF"> <img src="img/cccloud.png" style="width:45px">新增園區</a></li>
+
 
                             <li ><a href="{{ url('s3-image-upload') }}" style="color: #FFFFFF"><img src="img/cccloud.png" style="width:45px">上傳圖片</a></li>
                             <li class="dropdown" >
@@ -83,7 +85,7 @@
 
                                 </ul>
                             </li>
-                       
+
                     </ul>
 
                 </div>

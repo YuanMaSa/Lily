@@ -13,7 +13,7 @@ $(function (){
 
         if (input.files && input.files[0]) {
             var reader = new FileReader();
-            
+
             reader.onload = function (e) {
                 $('.preview').attr('src', e.target.result);
                 var KB = format_float(e.total / 1024, 2);
@@ -27,15 +27,33 @@ $(function (){
     $("body").on("change", ".upl", function (){
         preview(this);
     })
-    
+
 })
 </script>
 
 <div class="container">
+   @if (count($errors) > 0)
+   <div class="alert alert-danger">
+      <strong>Whoops!</strong> There were some problems with your input.<br><br>
+    <ul>
+      @foreach ($errors->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
+     </ul>
+      </div>
+      @endif
 
+
+	  @if ($message = Session::get('success'))
+		<div class="alert alert-success alert-block">
+			<button type="button" class="close" data-dismiss="alert">×</button>
+		        <strong>{{ $message }}</strong>
+		</div>
+		<img src="{{ Session::get('path') }}">
+	  @endif
 <form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
 {{ csrf_field() }}
- 
+
  <div class="row" style="margin-top: 100px;">
   <div class="col-md-1 col-sm-1"></div>
 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -46,7 +64,7 @@ $(function (){
      <label  for="exampleInputEmail1" >含水量</label>
     </div>
        <div class="col-sm-7 control-label">
-        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="含水量" name="water">
+        <input type="number" min="0" max="100" class="form-control" id="exampleInputEmail1" placeholder="含水量" name="water">
        </div>
        <div class="col-sm-1 control-label">%</div>
     </div>
@@ -67,7 +85,7 @@ $(function (){
      <label  for="exampleInputEmail1" >取樣時間</label>
     </div>
        <div class="col-sm-7 control-label">
-        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="取樣時間" name="take_time">
+        <input type="number" min="0" class="form-control" id="exampleInputEmail1" placeholder="取樣時間" name="take_time">
        </div>
        <div class="col-sm-2 control-label" style="text-align: left;">小時</div>
     </div>
@@ -76,7 +94,7 @@ $(function (){
      <label  for="exampleInputEmail1" >L</label>
     </div>
        <div class="col-sm-7 control-label">
-        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="L值" name="L_value">
+        <input type="number" min="0" max="100" step="0.1" class="form-control" id="exampleInputEmail1" placeholder="L值" name="L_value">
        </div>
     </div>
     <div class="form-group">
@@ -84,7 +102,7 @@ $(function (){
      <label  for="exampleInputEmail1">a</label>
     </div>
        <div class="col-sm-7 control-label">
-        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="a值" name="a_value">
+        <input type="number" min="0" max="100" step="0.1" class="form-control" id="exampleInputEmail1" placeholder="a值" name="a_value">
        </div>
     </div>
     <div class="form-group">
@@ -92,7 +110,7 @@ $(function (){
      <label  for="exampleInputEmail1">b</label>
     </div>
        <div class="col-sm-7 control-label">
-        <input type="number" class="form-control" id="exampleInputEmail1" placeholder="b值" name="b_value">
+        <input type="number" min="0" max="100" step="0.1" class="form-control" id="exampleInputEmail1" placeholder="b值" name="b_value">
        </div>
     </div>
      <div class="form-group">
@@ -107,22 +125,22 @@ $(function (){
      </select>
        </div>
     </div>
-   
-   
+
+
   </div>
   <div class="col-md-5 col-sm-0" >
-  
+
    <div class="form-group">
 
-   
+
        <div class="col-sm-3 col-sm-offset-3 control-label ">
-       
+
      <label  for="exampleInputEmail1">上傳檔案</label>
     </div>
     </div>
 
     <div class="form-group">
-   
+
        <div class="col-sm-3 col-sm-offset-1 control-label " >
        <div style="background-image: url(img/cloud.png);width:250px;height: 150px; margin-left:20px; " >
         <input type='file' class="upl" name="image" style="padding: 70px 45px">
@@ -130,9 +148,7 @@ $(function (){
         <img class="preview" style="max-width: 150px; max-height: 200px; margin: 20px">
     </div>
     </div>
-    </div>  
-
-     
+    </div>
      <div class="col-md-1 col-sm-1"></div>
      </div>
   <div class="row">
@@ -143,8 +159,8 @@ $(function (){
 
   </form>
 
-    
+
   </div>
- 
+
 
 @endsection
