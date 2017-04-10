@@ -64,7 +64,7 @@ $(function (){
      <label  for="exampleInputEmail1" >含水量</label>
     </div>
        <div class="col-sm-7 control-label">
-        <input type="number" min="0" max="100" class="form-control" id="exampleInputEmail1" placeholder="含水量" name="water">
+        <input type="number" min="0" max="100" class="form-control" id="exampleInputEmail1" placeholder="含水量" name="water" required>
        </div>
        <div class="col-sm-1 control-label">%</div>
     </div>
@@ -85,7 +85,7 @@ $(function (){
      <label  for="exampleInputEmail1" >取樣時間</label>
     </div>
        <div class="col-sm-7 control-label">
-        <input type="number" min="0" class="form-control" id="exampleInputEmail1" placeholder="取樣時間" name="take_time">
+        <input type="number" min="0" class="form-control" id="exampleInputEmail1" placeholder="取樣時間" name="take_time" required>
        </div>
        <div class="col-sm-2 control-label" style="text-align: left;">小時</div>
     </div>
@@ -94,7 +94,7 @@ $(function (){
      <label  for="exampleInputEmail1" >L</label>
     </div>
        <div class="col-sm-7 control-label">
-        <input type="number" min="0" max="100" step="0.1" class="form-control" id="exampleInputEmail1" placeholder="L值" name="L_value">
+        <input type="number" min="0" max="100" step="0.1" class="form-control" id="exampleInputEmail1" placeholder="L值" name="L_value" required>
        </div>
     </div>
     <div class="form-group">
@@ -102,7 +102,7 @@ $(function (){
      <label  for="exampleInputEmail1">a</label>
     </div>
        <div class="col-sm-7 control-label">
-        <input type="number" min="0" max="100" step="0.1" class="form-control" id="exampleInputEmail1" placeholder="a值" name="a_value">
+        <input type="number" min="0" max="100" step="0.1" class="form-control" id="exampleInputEmail1" placeholder="a值" name="a_value" required>
        </div>
     </div>
     <div class="form-group">
@@ -110,7 +110,7 @@ $(function (){
      <label  for="exampleInputEmail1">b</label>
     </div>
        <div class="col-sm-7 control-label">
-        <input type="number" min="0" max="100" step="0.1" class="form-control" id="exampleInputEmail1" placeholder="b值" name="b_value">
+        <input type="number" min="0" max="100" step="0.1" class="form-control" id="exampleInputEmail1" placeholder="b值" name="b_value" required>
        </div>
     </div>
      <div class="form-group">
@@ -118,7 +118,7 @@ $(function (){
      <label  for="exampleInputEmail1" >所屬園區</label>
     </div>
        <div class="col-sm-7 control-label">
-        <select class="form-control" name="address_id">
+        <select class="form-control" name="address_id" required>
         @foreach ($addresses as $address)
        <option value="{{$address->id}}">{{$address->name}}</option>
        @endforeach
