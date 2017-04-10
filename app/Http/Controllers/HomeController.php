@@ -3,6 +3,11 @@
 namespace LilyFlower\Http\Controllers;
 
 use Illuminate\Http\Request;
+use LilyFlower\photodetail;
+use LilyFlower\address;
+use LilyFlower\process;
+use LilyFlower\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +28,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user_id=Auth::id();
+        $photodetails = User::find($user_id)->photodetail;
+        $processes=process::all();
+        $addresses =address::all();
+        return view('home',compact('addresses','processes','photodetails'));
     }
 }

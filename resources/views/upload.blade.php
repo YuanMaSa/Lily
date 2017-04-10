@@ -34,11 +34,11 @@ $(function (){
 <div class="container">
 
 <form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
-
 {{ csrf_field() }}
  
  <div class="row" style="margin-top: 100px;">
   <div class="col-md-1 col-sm-1"></div>
+<input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
 
   <div class="col-md-5 col-sm-11" style="border:2px #ccc solid;border-radius:10px;padding-top: 50px;padding-bottom: 30px">
      <div class="form-group">
@@ -102,7 +102,7 @@ $(function (){
        <div class="col-sm-7 control-label">
         <select class="form-control" name="address_id">
         @foreach ($addresses as $address)
-       <option value="{{$addess->id}}">{{$address->name}}</option>
+       <option value="{{$address->id}}">{{$address->name}}</option>
        @endforeach
      </select>
        </div>

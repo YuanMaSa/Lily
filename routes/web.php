@@ -26,6 +26,8 @@ Route::get('/admin', function () {
 Route::get('/home', 'HomeController@index');
 //使用者相關登入
 Auth::routes();
+Route::resource('/home', 'HomeController');
+
 
 Route::get('auth/google', ['as'=>'auth/google','uses'=>'Auth\LoginController@redirectToProvider']);
 Route::get('auth/google/callback', ['as'=>'auth/google/callback','uses'=>'Auth\LoginController@handleProviderCallback']);

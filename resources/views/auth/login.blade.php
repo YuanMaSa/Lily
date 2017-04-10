@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+<div >
+<div class="container" >
+    <div class="row" style="margin-top: 5px">
+    <div class="col-sm-1 col-md-3"></div>
+        <div class="col-sm-10 col-md-6 " >
+        <!--style="background-image: url(img/12.png);width: 550px;height: 550px;background-size: 100%; background-repeat: no-repeat;background-position: center;"-->
+        <!--<img src="img/sun.png" style="padding-left:60px;"> -->
+        <center>
+    
+            <div class="panel panel-default" style="width: 250px;margin-top: 200px;border-color: #0066CC" >
+                <div class="panel-heading" style="background-color:#ECF5FF;border-color: #0066CC" >Login</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                         {{ csrf_field() }}
@@ -48,23 +54,26 @@
                             </div>
                         </div> -->
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-2">
+                        
                                 <!-- <button type="submit" class="btn btn-primary">
                                     Login
                                 </button> -->
-                                <a class="btn btn-danger btn-block" href="{!! URL::route('auth/google')!!}">
+                                <a class="btn btn-danger btn-block" href="{!! URL::route('auth/google')!!}" style="border-radius: 50px;width: 200px">
                                     Google＋
                                 </a>
                                 <!-- <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a> -->
-                            </div>
-                        </div>
+                            
+
                     </form>
                 </div>
             </div>
+            
+            </center>
         </div>
+        <div class="col-sm-1 col-md-3"></div>
     </div>
+</div>
 </div>
 @endsection
