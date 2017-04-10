@@ -289,5 +289,7 @@ p {
     color: #555;
     background-color: #3C3C3C;
 }
- 
+.clickable {
+    cursor: pointer;
+}
 
