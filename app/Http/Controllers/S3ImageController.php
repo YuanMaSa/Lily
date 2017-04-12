@@ -43,7 +43,7 @@ class S3ImageController extends Controller
     public function imageUploadPost(Request $request)
     {   echo "1";
     	$this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:100000',
         ]);//限制照片副檔名及大小
          echo "2";
         $imageName = time().'.'.$request->image->getClientOriginalExtension();
