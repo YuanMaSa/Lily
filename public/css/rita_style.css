@@ -289,5 +289,39 @@ p {
     color: #555;
     background-color: #3C3C3C;
 }
+
+/* home 分類選項 */
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+    color: #fff;
+    cursor: default;
+    background-color: transparent;
+    border: 0px ;
+    border-bottom-color: transparent;
+}
+.nav-tabs > li > a {
+    margin-right: 0px;
+    line-height:0;
+    border: 0px 
+    
+}
+.nav-tabs {
+    border-bottom: 0px solid #ddd;
+}
+a {
+    color: #46A3FF;
+    outline: 0;
+    text-decoration: none;
+}
+.nav > li > a {
+    position: relative;
+    display: block;
+    padding: 15px 1px;
+}
+.btn-primary:hover {
+    color: #204d74;
+    background-color: #ddd;
+    border-color: #d5d5d5;
+}
  
+ /* home 分類選項 */
 

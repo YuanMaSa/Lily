@@ -27,6 +27,7 @@ Route::get('/home', 'HomeController@index');
 //使用者相關登入
 Auth::routes();
 Route::resource('/home', 'HomeController');
+Route::post('/home', 'HomeController@index');
 
 
 Route::get('auth/google', ['as'=>'auth/google','uses'=>'Auth\LoginController@redirectToProvider']);

@@ -29,14 +29,56 @@ class HomeController extends Controller
      */
     public function index()
     {
-
         $user_id=Auth::id();
-        $photodetails =DB::table('photodetails')
+        $addresses=address::all();
+        $photodetails1 =DB::table('photodetails')
             ->join('processes', 'process_id', '=', 'processes.id')
+            ->join('users', 'user_id', '=', 'users.id')
             ->select('processes.method','water','photodetails.created_at','photo_url')
             ->get();
+        
+        $photodetails2 = DB::table('photodetails')
+                    ->join('users', 'user_id', '=', 'users.id')
+                    ->join('processes', 'process_id', '=', 'processes.id')
+                    ->select('processes.method','water','photodetails.created_at','photo_url')
+                    ->where('process_id', '=', 1)
+                    ->get();
+        $photodetails3 = DB::table('photodetails')
+                    ->join('users', 'user_id', '=', 'users.id')
+                    ->join('processes', 'process_id', '=', 'processes.id')
+                    ->select('processes.method','water','photodetails.created_at','photo_url')
+                    ->where('process_id', '=', 2)
+                    ->get();
+        $photodetails4 = DB::table('photodetails')
+                    ->join('users', 'user_id', '=', 'users.id')
+                    ->join('processes', 'process_id', '=', 'processes.id')
+                    ->select('processes.method','water','photodetails.created_at','photo_url')
+                    ->where('process_id', '=', 3)
+                    ->get();
+        $photodetails5 = DB::table('photodetails')
+                    ->join('users', 'user_id', '=', 'users.id')
+                    ->join('processes', 'process_id', '=', 'processes.id')
+                    ->select('processes.method','water','photodetails.created_at','photo_url')
+                    ->where('process_id', '=', 4)
+                    ->get();
+        $photodetails6= DB::table('photodetails')
+                    ->join('users', 'user_id', '=', 'users.id')
+                    ->join('processes', 'process_id', '=', 'processes.id')
+                    ->select('processes.method','water','photodetails.created_at','photo_url')
+                    ->orderBy('created_at', 'desc')
+                    ->get();
+            
+        $photodetails7= DB::table('photodetails')
+                    ->join('users', 'user_id', '=', 'users.id')
+                    ->join('processes', 'process_id', '=', 'processes.id')
+                    ->select('processes.method','water','photodetails.created_at','photo_url','address_id')
+                    
+                    ->get();
+
+        
         $processes=process::all();
-        $addresses =address::all();
-        return view('home',compact('addresses','processes','photodetails'));
+        
+
+        return view('home',compact('processes','addresses','photodetails1','photodetails2','photodetails3','photodetails4','photodetails5','photodetails6','photodetails7'));
     }
 }
