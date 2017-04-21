@@ -37,7 +37,8 @@ return [
     'google' => [
     'client_id' => '361357565621-uovqiptki6cegeur45lmhesu3j4c4vvv.apps.googleusercontent.com',
     'client_secret' => '_B4zNAy--af1DjACTjTRauDi',
-    'redirect' => 'http://twlilyflower.tk/auth/google/callback',
+       //'redirect' => 'http://ec2-52-198-209-211.ap-northeast-1.compute.amazonaws.com/auth/google/callback',
+    'redirect' => 'http://localhost:8000/auth/google/callback',
 
     ],
 

@@ -13,12 +13,12 @@
                     <td>刪除位址</td>
                 </tr>
                 @foreach ($addresses as $address)
-                
+
                 <tr>
                     <td>{{$address->id}}</td>
                     <td>{{$address->name}}</td>
-                    <td><button type="button" class="btn btn-sm btn-success"  data-toggle="modal" data-target="#AddressModify{{$address->id}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改</button></td>
-                    <td><button type="button" class="btn btn-sm btn-danger"  data-toggle="modal" data-target="#AddressDelete{{$address->id}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>刪除</button></td>
+                    <td><button type="button" class="btn btn-sm btn-success clickable" data-toggle="modal" data-target="#AddressModify{{$address->id}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改</button></td>
+                    <td><button type="button" class="btn btn-sm btn-danger clickable"  data-toggle="modal" data-target="#AddressDelete{{$address->id}}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>刪除</button></td>
                 </tr>
                 @endforeach
             </table>
@@ -45,13 +45,13 @@
                   <input type="text" class="form-control" name="name" required="required"  placeholder="園區位址" value="{{$address->name}}">
                 </div>
               </div>
-            
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Close</button>
             <button type="submit" action="AccountList" name="type" value="deleteMember" class="btn btn-md btn-primary">確認</button>
           </div>
-        
+
         </form>
         </div>
       </div>
@@ -68,14 +68,14 @@
                 </div>
                 <div class="modal-body">
                   <table class="table table-striped">
-                  
+
                   {{csrf_field()}}
           			{{method_field('DELETE')}}
               <tbody>
               <input type="hidden" name="id" value="{{$address->id}}">
               	<tr>
                  <td>編號</td>
-                 <td>園區位址</td> 
+                 <td>園區位址</td>
                 </tr>
                 <tr>
                   <td>{{$address->id}}</td>
