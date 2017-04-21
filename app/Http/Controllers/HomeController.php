@@ -35,14 +35,14 @@ class HomeController extends Controller
         $photodetails1 =DB::table('photodetails')
             ->join('processes', 'process_id', '=', 'processes.id')
             ->join('users', 'user_id', '=', 'users.id')
-            ->select('processes.method','water','photodetails.created_at','photo_url')
+            ->select('processes.method','water','photodetails.created_at','photo_url','user_id')
             ->where('user_id', '=', 'users.id')
             ->get();
 
         $photodetails2 = DB::table('photodetails')
                     ->join('users', 'user_id', '=', 'users.id')
                     ->join('processes', 'process_id', '=', 'processes.id')
-                    ->select('processes.method','water','photodetails.created_at','photo_url')
+                    ->select('processes.method','water','photodetails.created_at','photo_url','user_id')
                     ->where([
                         ['process_id', '=', 1],
                         ['user_id', '=', 'users.id'],
@@ -51,7 +51,7 @@ class HomeController extends Controller
         $photodetails3 = DB::table('photodetails')
                     ->join('users', 'user_id', '=', 'users.id')
                     ->join('processes', 'process_id', '=', 'processes.id')
-                    ->select('processes.method','water','photodetails.created_at','photo_url')
+                    ->select('processes.method','water','photodetails.created_at','photo_url','user_id')
                     ->where([
                         ['process_id', '=', 2],
                         ['user_id', '=', 'users.id'],
@@ -60,7 +60,7 @@ class HomeController extends Controller
         $photodetails4 = DB::table('photodetails')
                     ->join('users', 'user_id', '=', 'users.id')
                     ->join('processes', 'process_id', '=', 'processes.id')
-                    ->select('processes.method','water','photodetails.created_at','photo_url')
+                    ->select('processes.method','water','photodetails.created_at','photo_url','user_id')
                     ->where([
                         ['process_id', '=', 3],
                         ['user_id', '=', 'users.id'],
@@ -69,7 +69,7 @@ class HomeController extends Controller
         $photodetails5 = DB::table('photodetails')
                     ->join('users', 'user_id', '=', 'users.id')
                     ->join('processes', 'process_id', '=', 'processes.id')
-                    ->select('processes.method','water','photodetails.created_at','photo_url')
+                    ->select('processes.method','water','photodetails.created_at','photo_url','user_id')
                     ->where([
                         ['process_id', '=', 4],
                         ['user_id', '=', 'users.id'],
@@ -78,15 +78,14 @@ class HomeController extends Controller
         $photodetails6= DB::table('photodetails')
                     ->join('users', 'user_id', '=', 'users.id')
                     ->join('processes', 'process_id', '=', 'processes.id')
-                    ->select('processes.method','water','photodetails.created_at','photo_url')
+                    ->select('processes.method','water','photodetails.created_at','photo_url','user_id')
                     ->orderBy('created_at', 'desc')
                     ->get();
 
         $photodetails7= DB::table('photodetails')
                     ->join('users', 'user_id', '=', 'users.id')
                     ->join('processes', 'process_id', '=', 'processes.id')
-                    ->select('processes.method','water','photodetails.created_at','photo_url','address_id')
-
+                    ->select('processes.method','water','photodetails.created_at','photo_url','address_id','user_id')
                     ->get();
 
 
