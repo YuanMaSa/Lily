@@ -36,6 +36,7 @@ class HomeController extends Controller
             ->join('processes', 'process_id', '=', 'processes.id')
             ->join('users', 'user_id', '=', 'users.id')
             ->select('processes.method','water','photodetails.created_at','photo_url')
+            ->where('user_id', '=', 'users.id')
             ->get();
 
         $photodetails2 = DB::table('photodetails')
