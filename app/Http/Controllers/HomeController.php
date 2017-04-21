@@ -30,6 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         $user_id=Auth::id();
+        $photodetails = User::find($user_id)->photodetail;
         $addresses=address::all();
         $photodetails1 =DB::table('photodetails')
             ->join('processes', 'process_id', '=', 'processes.id')
