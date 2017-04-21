@@ -31,7 +31,7 @@ class HomeController extends Controller
     {
         $user_id=Auth::id();
         $photodetails = User::find($user_id)->photodetail;
-        $addresses=address::all();
+        $addresses=address::find($user_id)->address;
         $photodetails1 =DB::table('photodetails')
             ->join('processes', 'process_id', '=', 'processes.id')
             ->join('users', 'user_id', '=', 'users.id')

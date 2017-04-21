@@ -4,8 +4,8 @@
 <div class="container">
     <div class="row">
     <div class="col-sm-2 col-md-2"></div>
-    
-   
+
+
         <div class="col-sm-8 col-md-8" style="background-image: url(img/sun.png);background-position:left;background-size: 150px;background-repeat:no-repeat;">
         <center>
             <div class="btn-group" data-toggle="buttons" style="border: 2px;border-color: #C4E1FF;margin: 50px auto 20px auto;">
@@ -22,12 +22,12 @@
                     乾燥製程分類 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu " role="menu">
-            
+
             <li role="presentation" ><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">日曬製程</a></li>
             <li role="presentation" ><a href="#profile2" aria-controls="profile" role="tab" data-toggle="tab">乾燥製程</a></li>
             <li role="presentation" ><a href="#profile3" aria-controls="profile" role="tab" data-toggle="tab">風乾製程</a></li>
             <li role="presentation" ><a href="#profile4" aria-controls="profile" role="tab" data-toggle="tab">其他製程</a></li>
-            
+
                         </ul>
             </li>
             <li role="presentation" class="btncolor btn btn-primary"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">日期分類</a></li>
@@ -44,7 +44,7 @@
 
           </ul>
             </div>
-            
+
         </div>
         </center>
         </div>
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                          @endforeach
-                    </div>                   
+                    </div>
             </div>
 
             <div role="tabpanel" class="tab-pane" id="profile1">
@@ -96,8 +96,8 @@
                             </div>
                         </div>
                          @endforeach
-                    </div>     
-          
+                    </div>
+
             </div>
             <div role="tabpanel" class="tab-pane" id="profile2">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -117,8 +117,8 @@
                             </div>
                         </div>
                          @endforeach
-                    </div>     
-          
+                    </div>
+
             </div>
             <div role="tabpanel" class="tab-pane" id="profile3">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -138,8 +138,8 @@
                             </div>
                         </div>
                          @endforeach
-                    </div>     
-          
+                    </div>
+
             </div>
             <div role="tabpanel" class="tab-pane" id="profile4">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -159,8 +159,8 @@
                             </div>
                         </div>
                          @endforeach
-                    </div>     
-          
+                    </div>
+
             </div>
 
 
@@ -182,7 +182,7 @@
                             </div>
                         </div>
                          @endforeach
-                    </div>     
+                    </div>
             </div>
             @foreach ($addresses as $address)
 
@@ -206,27 +206,21 @@
                         </div>
                          @endif
           @endforeach
-                    </div>     
+                    </div>
           </div>
-          
+
           @endforeach
           </div>
                 </form>
                 </div>
-                <select name="test1">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                </select>
-              
+
         <!--
         <form>
                 <label class="btn btn-primary active btncolor">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked=""> 
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked="">
                     全部all
                 </label>
-                
+
                 <label class="btncolor btn btn-primary">
                     <input type="radio" name="options" id="option2" autocomplete="off"> 乾燥製程分類
                 </label>
@@ -237,8 +231,8 @@
                     <input type="radio" name="options" id="option4" autocomplete="off"> 園區分類
                 </label>
               </form>
-              -->  
-            
+              -->
+
     <!-- heeader 按鈕 -->
 </div>
 @endsection
