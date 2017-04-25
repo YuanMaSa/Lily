@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/masonry-docs.css') }}" rel="stylesheet">
     <link href="{{ asset('css/rita_style.css') }}" rel="stylesheet">
     <!-- Scripts -->
     <script>
@@ -22,6 +23,7 @@
     </script>
     <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
+    <script src="{{ asset('js/masonry-docs.min.js') }}"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
 </head>
 <body  style="background-image: url(img/sky1.jpg);
