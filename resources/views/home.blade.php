@@ -59,25 +59,8 @@
           <div class="tab-content"> <!--顯示全部-->
             <div role="tabpanel" class="tab-pane active" id="home" >
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="grid" >
+                    <div class="grid" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails1 as $photodetail)
-                        <div class="grid-item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
-                            <div class="thumbnail">
-                                <div class="caption">
-                                    <p>含水量：{{$photodetail->water}} %</p>
-                                    <p>乾燥製程：{{$photodetail->method}}</p>
-                                    <p>日期：{{$photodetail->created_at}}</p>
-                                    <!---
-                        <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
-                        -->
-                                </div>
-                            </div>
-                        </div>
-                         @endforeach
-                    </div>
-                    <div class="grid" >
-                                            @foreach ($photodetails1 as $photodetail)
                         <div class="grid-item">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
                             <div class="thumbnail">
