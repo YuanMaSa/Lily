@@ -66,7 +66,6 @@
                     <script id="waterfall-template" type="text/template">
                     @foreach ($photodetails1 as $photodetail)
                         <ul class="list-group" >
-                            <li class="list-group-item">
                                 <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
                             <div class="thumbnail">
                                 <div class="caption">
@@ -78,7 +77,6 @@
                         -->
                                 </div>
                             </div>
-                            </li>
                         </ul>
                          @endforeach
                     </script>
