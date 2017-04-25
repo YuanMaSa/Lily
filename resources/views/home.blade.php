@@ -59,9 +59,8 @@
           <div class="tab-content"> <!--顯示全部-->
             <div role="tabpanel" class="tab-pane active" id="home" >
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                     <div class=container>
-                        <div class="waterfall"></div>
-                    </div>
+                    <div class="waterfall">
+                    <div style="position: relative;">
                     @foreach ($photodetails1 as $photodetail)
                         <div class="list-group" style="margin-right: 0px;">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
@@ -77,6 +76,8 @@
                             </div>
                         </div>
                          @endforeach
+                    </div>
+                    </div>
             </div>
 
             <div role="tabpanel" class="tab-pane" id="profile1">
