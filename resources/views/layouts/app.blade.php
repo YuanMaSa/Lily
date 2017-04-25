@@ -33,7 +33,8 @@
       $(function(){
         $('.masonry').masonry({
           itemSelector: '.item'
-      });
+        });
+    });
     </script>
 <body  style="background-image: url(img/sky1.jpg);
             background-repeat: no-repeat;
