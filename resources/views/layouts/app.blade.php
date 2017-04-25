@@ -24,7 +24,6 @@
         ]) !!};
     </script>
     <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/masonry-docs.min.js') }}"></script>
     <script src="{{ asset('js/vendor.js') }}"scripts/vendor.js></script>
     <script src="{{ asset('js/bootstrap-waterfall.js') }}"></script>
