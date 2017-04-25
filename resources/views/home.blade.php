@@ -65,8 +65,9 @@
                     </div>
                     <script id="waterfall-template" type="text/template">
                     @foreach ($photodetails1 as $photodetail)
-                        <div class="list-group" >
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
+                        <ul class="list-group" >
+                            <li class="list-group-item">
+                                <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
                             <div class="thumbnail">
                                 <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
@@ -77,7 +78,8 @@
                         -->
                                 </div>
                             </div>
-                        </div>
+                            </li>
+                        </ul>
                          @endforeach
                     </script>
                      <script>
