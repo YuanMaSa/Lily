@@ -61,9 +61,9 @@
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="grid" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails1 as $photodetail)
-                        <div class="grid-sizer col-xs-6 col-sm-4 col-md-3">
+                        <div class="grid-item">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
-                            <div class="thumbnail grid-item-content">
+                            <div class="thumbnail">
                                 <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
