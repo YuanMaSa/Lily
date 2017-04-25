@@ -81,9 +81,9 @@
 
             <div role="tabpanel" class="tab-pane" id="profile1">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="row" style="margin:50px 20px 30px 20px">
+                    <div class="grid" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails2 as $photodetail)
-                        <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="grid-item">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
                             <div class="thumbnail">
                                 <div class="caption">
@@ -102,9 +102,9 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="profile2">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="row" style="margin:50px 20px 30px 20px">
+                    <div class="grid" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails3 as $photodetail)
-                        <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="grid-item">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
                             <div class="thumbnail">
                                 <div class="caption">
@@ -123,9 +123,9 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="profile3">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="row" style="margin:50px 20px 30px 20px">
+                    <div class="grid" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails4 as $photodetail)
-                        <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="grid-item">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
                             <div class="thumbnail">
                                 <div class="caption">
@@ -144,9 +144,9 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="profile4">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="row" style="margin:50px 20px 30px 20px">
+                    <div class="grid" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails5 as $photodetail)
-                        <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="grid-item">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
                             <div class="thumbnail">
                                 <div class="caption">
@@ -167,9 +167,9 @@
 
             <div role="tabpanel" class="tab-pane" id="messages">
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="row" style="margin:50px 20px 30px 20px">
+                    <div class="grid" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails6 as $photodetail)
-                        <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="grid-item">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
                             <div class="thumbnail">
                                 <div class="caption">
@@ -189,10 +189,10 @@
 
             <div role="tabpanel" class="tab-pane" id="settings{{$address->id}}">
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="row" style="margin:50px 20px 30px 20px">
+                    <div class="grid" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails7 as $photodetail)
             @if ($photodetail->address_id==$address->id)
-                        <div class="col-xs-12 col-sm-3 col-md-3">
+                        <div class="grid">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
                             <div class="thumbnail">
                                 <div class="caption">
