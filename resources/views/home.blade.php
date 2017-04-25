@@ -82,7 +82,11 @@
                         </ul>
                          @endforeach
                     </script>
-
+                     <script>
+                        $('.waterfall')
+                            .data('bootstrap-waterfall-template', $('#waterfall-template').html())
+                            .waterfall();
+                    </script>
             </div>
 
             <div role="tabpanel" class="tab-pane" id="profile1">
@@ -220,11 +224,6 @@
           </div>
                 </form>
                 </div>
-                 <script>
-                        $('.waterfall')
-                            .data('bootstrap-waterfall-template', $('#waterfall-template').html())
-                            .waterfall();
-                    </script>
 
         <!--
         <form>
