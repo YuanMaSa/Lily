@@ -27,7 +27,9 @@
   max-width: 20rem;
   width: 90%;
 }
-
+.grid-item {
+  width: 30%;
+}
 /* helpers/hidden.css */
 
 .hidden {
@@ -237,7 +239,7 @@ p {
     color:#777;
     background-color: #ddd;
     border-color: #d5d5d5;
-    
+
 }
 
 .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
@@ -262,7 +264,7 @@ p {
   font-size: 20px;
   padding: 12px 30px 12px;
   }
-  
+
   .btn-sm, .btn-group-sm>.btn {
     padding: 5px 5px;
     font-size: 12px;
@@ -301,8 +303,8 @@ p {
 .nav-tabs > li > a {
     margin-right: 0px;
     line-height:0;
-    border: 0px 
-    
+    border: 0px
+
 }
 .nav-tabs {
     border-bottom: 0px solid #ddd;
@@ -322,8 +324,7 @@ a {
     background-color: #ddd;
     border-color: #d5d5d5;
 }
- 
+
  /* home 分類選項 */
 
- 
- 
+
