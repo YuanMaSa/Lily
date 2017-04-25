@@ -25,6 +25,13 @@
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/masonry-docs.min.js') }}"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="http://desandro.github.io/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script>
+      $(function(){
+        $('.masonry').masonry({
+          itemSelector: '.item'
+      });
+    </script>
     <script src="{{ asset('js/myscript.js') }}"></script>
 </head>
 <body  style="background-image: url(img/sky1.jpg);

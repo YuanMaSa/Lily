@@ -59,11 +59,10 @@
           <div class="tab-content"> <!--顯示全部-->
             <div role="tabpanel" class="tab-pane active" id="home" >
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="grid" style="margin:50px 20px 30px 20px">
-                    <div class="grid-sizer"></div>
+                    <div class="row masonry" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails1 as $photodetail)
-                        <div class="grid-item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
+                        <div class="col-xs-12 col-sm-3 col-md-3 item">
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
                             <div class="thumbnail">
                                 <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
@@ -81,10 +80,10 @@
 
             <div role="tabpanel" class="tab-pane" id="profile1">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="grid" style="margin:50px 20px 30px 20px">
+                    <div class="row masonry" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails2 as $photodetail)
-                        <div class="grid-item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
+                        <div class="col-xs-12 col-sm-3 col-md-3 item">
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
                             <div class="thumbnail">
                                 <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
@@ -102,10 +101,10 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="profile2">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="grid" style="margin:50px 20px 30px 20px">
+                    <div class="row masonry" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails3 as $photodetail)
-                        <div class="grid-item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
+                        <div class="col-xs-12 col-sm-3 col-md-3 item">
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
                             <div class="thumbnail">
                                 <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
@@ -123,10 +122,10 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="profile3">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="grid" style="margin:50px 20px 30px 20px">
+                    <div class="row masonry" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails4 as $photodetail)
-                        <div class="grid-item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
+                        <div class="col-xs-12 col-sm-3 col-md-3 item">
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
                             <div class="thumbnail">
                                 <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
@@ -144,10 +143,10 @@
             </div>
             <div role="tabpanel" class="tab-pane" id="profile4">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="grid" style="margin:50px 20px 30px 20px">
+                    <div class="row masonry" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails5 as $photodetail)
-                        <div class="grid-item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
+                        <div class="col-xs-12 col-sm-3 col-md-3 item">
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
                             <div class="thumbnail">
                                 <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
@@ -167,10 +166,10 @@
 
             <div role="tabpanel" class="tab-pane" id="messages">
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="grid" style="margin:50px 20px 30px 20px">
+                    <div class="row masonry" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails6 as $photodetail)
-                        <div class="grid-item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
+                        <div class="col-xs-12 col-sm-3 col-md-3 item">
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
                             <div class="thumbnail">
                                 <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
@@ -189,11 +188,11 @@
 
             <div role="tabpanel" class="tab-pane" id="settings{{$address->id}}">
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                    <div class="grid" style="margin:50px 20px 30px 20px">
+                    <div class="row masonry" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails7 as $photodetail)
             @if ($photodetail->address_id==$address->id)
-                        <div class="grid-item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
+                        <div class="col-xs-12 col-sm-3 col-md-3 item">
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
                             <div class="thumbnail">
                                 <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
