@@ -14,7 +14,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/masonry-docs.css') }}" rel="stylesheet">
+    <link rel=stylesheet href="{{ asset('css/main.css') }}">
     <link href="{{ asset('css/rita_style.css') }}" rel="stylesheet">
+
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -24,6 +26,9 @@
     <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}"></script>
     <script src="{{ asset('js/masonry-docs.min.js') }}"></script>
+    <script src="{{ asset('js/vendor.js') }}"scripts/vendor.js></script>
+    <script src="{{ asset('js/bootstrap-waterfall.js') }}"></script>
+    <script id=waterfall-template type=text/template>
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <script src="http://desandro.github.io/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script>
