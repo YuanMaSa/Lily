@@ -57,11 +57,11 @@
 
           <!-- Tab panes -->
           <div class="tab-content"> <!--顯示全部-->
-            <div role="tabpanel" class="tab-pane active container-fluid" id="home" >
+            <div role="tabpanel" class="tab-pane active" id="home" >
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="grid" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails1 as $photodetail)
-                        <div class="grid-item">
+                        <div class="grid-sizer">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
                             <div class="thumbnail">
                                 <div class="caption">
