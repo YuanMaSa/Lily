@@ -52,6 +52,9 @@
         <div class="col-sm-2 col-md-2"></div>
      </div>
 <div class="row">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
+<div data-masonry-options="{columnWidth: 105, itemSelector:.item}" class="img-container js-masonry" style="position: relative; height: 381.417px;">
         <form   action="{{ url('/home') }}"  method="POST">
                     {{ csrf_field() }}
 
