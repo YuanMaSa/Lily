@@ -63,6 +63,7 @@
                         <div class="waterfall">
                         </div>
                     </div>
+                    <script id=waterfall-template type=text/template>
                     @foreach ($photodetails1 as $photodetail)
                         <div class="list-group" style="margin-right: 0px;">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
@@ -78,6 +79,7 @@
                             </div>
                         </div>
                          @endforeach
+                    </script>
             </div>
 
             <div role="tabpanel" class="tab-pane" id="profile1">

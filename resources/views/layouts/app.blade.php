@@ -27,7 +27,6 @@
     <script src="{{ asset('js/masonry-docs.min.js') }}"></script>
     <script src="{{ asset('js/vendor.js') }}"scripts/vendor.js></script>
     <script src="{{ asset('js/bootstrap-waterfall.js') }}"></script>
-    <script id=waterfall-template type=text/template>
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <script src="http://desandro.github.io/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script>
