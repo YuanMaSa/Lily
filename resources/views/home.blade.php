@@ -192,7 +192,7 @@
                     <div class="grid" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails7 as $photodetail)
             @if ($photodetail->address_id==$address->id)
-                        <div class="grid">
+                        <div class="grid-item">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-thumbnail">
                             <div class="thumbnail">
                                 <div class="caption">
