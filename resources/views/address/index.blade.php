@@ -36,7 +36,6 @@
           </div>
           <form class="form-horizontal" action="address/{{$address->id}}"  method="post">
           <div class="modal-body">
-          {{csrf_field()}}
           {{method_field('PUT')}}
           <input type="hidden" name="id" value="{{$address->id}}">
               <div class="form-group">
