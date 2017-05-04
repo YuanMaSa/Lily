@@ -51,7 +51,7 @@
 
         <div class="col-sm-2 col-md-2"></div>
      </div>
-<div class="row">
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
 <div data-masonry-options="{columnWidth: 105, itemSelector:.item}" class="img-container js-masonry" style="position: relative; height: 381.417px;">
@@ -60,14 +60,14 @@
 
           <!-- Tab panes -->
           <div class="tab-content"> <!--顯示全部-->
-            <div role="tabpanel" class="tab-pane active" id="home" >
+            <div role="tabpanel" class="tab-pane active masonry" id="home" >
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="row masonry" style="margin:50px 20px 30px 20px">
-                    @foreach ($photodetails1 as $photodetail)
-                        <div class="col-xs-12 col-sm-3 col-md-3 item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
-                            <div class="thumbnail">
-                                <div class="caption">
+                    <div class="masonry masonry-columns-4 col-xs-12">
+                    @foreach ($photodetails1 as $photodetail)      
+                    <div class="masonry-item">
+                    <div class="media">       
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
@@ -75,20 +75,21 @@
                         <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
                         -->
                                 </div>
-                            </div>
+                        </div>
                         </div>
                          @endforeach
+                    </div>
                     </div>
             </div>
 
             <div role="tabpanel" class="tab-pane" id="profile1">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="row masonry" style="margin:50px 20px 30px 20px">
+                    <div class="masonry masonry-columns-4 col-xs-12">
                     @foreach ($photodetails2 as $photodetail)
-                        <div class="col-xs-12 col-sm-3 col-md-3 item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
-                            <div class="thumbnail">
-                                <div class="caption">
+                        <div class="masonry-item">
+                    <div class="media">       
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
@@ -96,20 +97,20 @@
                         <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
                         -->
                                 </div>
-                            </div>
+                        </div>
                         </div>
                          @endforeach
                     </div>
-
+                    </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="profile2">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="row masonry" style="margin:50px 20px 30px 20px">
+                    <div class="masonry masonry-columns-4 col-xs-12">
                     @foreach ($photodetails3 as $photodetail)
-                        <div class="col-xs-12 col-sm-3 col-md-3 item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
-                            <div class="thumbnail">
-                                <div class="caption">
+                      <div class="masonry-item">
+                    <div class="media">       
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
@@ -117,20 +118,20 @@
                         <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
                         -->
                                 </div>
-                            </div>
+                        </div>
                         </div>
                          @endforeach
                     </div>
-
+                    </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="profile3">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="row masonry" style="margin:50px 20px 30px 20px">
+                    <div class="masonry masonry-columns-4 col-xs-12">
                     @foreach ($photodetails4 as $photodetail)
-                        <div class="col-xs-12 col-sm-3 col-md-3 item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
-                            <div class="thumbnail">
-                                <div class="caption">
+                        <div class="masonry-item">
+                    <div class="media">       
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
@@ -138,20 +139,20 @@
                         <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
                         -->
                                 </div>
-                            </div>
+                        </div>
                         </div>
                          @endforeach
                     </div>
-
+                    </div>
             </div>
             <div role="tabpanel" class="tab-pane" id="profile4">
             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="row masonry" style="margin:50px 20px 30px 20px">
+                    <div class="masonry masonry-columns-4 col-xs-12">
                     @foreach ($photodetails5 as $photodetail)
-                        <div class="col-xs-12 col-sm-3 col-md-3 item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
-                            <div class="thumbnail">
-                                <div class="caption">
+                        <div class="masonry-item">
+                    <div class="media">       
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
@@ -159,22 +160,21 @@
                         <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
                         -->
                                 </div>
-                            </div>
+                        </div>
                         </div>
                          @endforeach
                     </div>
-
+                    </div>
             </div>
-
 
             <div role="tabpanel" class="tab-pane" id="messages">
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="row masonry" style="margin:50px 20px 30px 20px">
+                    <div class="masonry masonry-columns-4 col-xs-12">
                     @foreach ($photodetails6 as $photodetail)
-                        <div class="col-xs-12 col-sm-3 col-md-3 item">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
-                            <div class="thumbnail">
-                                <div class="caption">
+                        <div class="masonry-item">
+                    <div class="media">       
+                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
@@ -182,9 +182,10 @@
                         <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
                         -->
                                 </div>
-                            </div>
+                        </div>
                         </div>
                          @endforeach
+                    </div>
                     </div>
             </div>
             @foreach ($addresses as $address)
@@ -192,9 +193,12 @@
             <div role="tabpanel" class="tab-pane" id="settings{{$address->id}}">
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="row masonry" style="margin:50px 20px 30px 20px">
+                    <div class="masonry masonry-columns-4 col-xs-12">
                     @foreach ($photodetails7 as $photodetail)
             @if ($photodetail->address_id==$address->id)
-                        <div class="col-xs-12 col-sm-3 col-md-3 item">
+            <div class="masonry-item">
+                    <div class="media"> 
+                        
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
                             <div class="thumbnail">
                                 <div class="caption">
@@ -207,8 +211,10 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                          @endif
           @endforeach
+                    </div>
                     </div>
           </div>
 

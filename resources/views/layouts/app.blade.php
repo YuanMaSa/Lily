@@ -25,16 +25,26 @@
     </script>
     <script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
     <script src="{{ asset('js/masonry-docs.min.js') }}"></script>
-    <script src="{{ asset('js/vendor.js') }}"scripts/vendor.js></script>
+    <script src="{{ asset('js/vendor.js') }}"></script>
     <script src="{{ asset('js/bootstrap-waterfall.js') }}"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
+    <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
     <script src="http://desandro.github.io/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script>
       $(function(){
-        $('.masonry').masonry({
-          itemSelector: '.item'
+        /* 瀑布流區塊div */
+        var $container = $('.masonry');
+  
+        //當圖片讀取完畢才執行
+        $container.imagesLoaded(function (){
+          //選擇瀑布流的區塊名稱
+          $container.masonry({
+            itemSelector: '.item'
+        
+          })
+        
         });
-    });
+      });
     </script>
 <body  style="background-image: url(img/sky1.jpg);
             background-repeat: no-repeat;
