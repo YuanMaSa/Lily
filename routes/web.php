@@ -22,6 +22,7 @@ Route::get('/s3-image-upload', function () {
 Route::get('/admin', function () {
     return view('admin');
 });
+Route::post('modifyPhoto','S3ImageController@modifyPhoto');
 //回到home頁面,查看所有圖片
 Route::get('/home', 'HomeController@index');
 //使用者相關登入
@@ -40,3 +41,5 @@ Route::get('s3-image-upload','S3ImageController@imageUpload');
 Route::resource('s3-image-upload','S3ImageController');
 
 Route::post('s3-image-upload','S3ImageController@imageUploadPost');
+Route::put('s3-image-upload/{id}', 'S3ImageController@update');
+

@@ -23,9 +23,9 @@
             </a>
             <ul class="dropdown-menu " role="menu">
 
-            <li role="presentation" ><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">日曬製程</a></li>
-            <li role="presentation" ><a href="#profile2" aria-controls="profile" role="tab" data-toggle="tab">乾燥製程</a></li>
-            <li role="presentation" ><a href="#profile3" aria-controls="profile" role="tab" data-toggle="tab">風乾製程</a></li>
+            <li role="presentation" ><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">低溫製程</a></li>
+            <li role="presentation" ><a href="#profile2" aria-controls="profile" role="tab" data-toggle="tab">日曬製程</a></li>
+            <li role="presentation" ><a href="#profile3" aria-controls="profile" role="tab" data-toggle="tab">熱風製程</a></li>
             <li role="presentation" ><a href="#profile4" aria-controls="profile" role="tab" data-toggle="tab">其他製程</a></li>
 
                         </ul>
@@ -71,9 +71,19 @@
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
-                                    <!---
-                        <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
-                        -->
+                                    <p>
+                                    <form action="modifyPhoto" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('POST')}}
+                                         <input type="hidden" name="id" value="{{$photodetail->id}}">
+                                        <button class="btn btn-success btn-sm" type="submit">修改</button>
+                                    </form>
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('DELETE')}}
+                                        <button class="btn btn-danger btn-sm" type="submit">刪除</button>
+                                    </form>
+                                    </p>
                                 </div>
                         </div>
                         </div>
@@ -93,9 +103,19 @@
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
-                                    <!---
-                        <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
-                        -->
+                                    <p>
+                                    <form action="modifyPhoto" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('POST')}}
+                                         <input type="hidden" name="id" value="{{$photodetail->id}}">
+                                        <button class="btn btn-success btn-sm" type="submit">修改</button>
+                                    </form>
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('DELETE')}}
+                                        <button class="btn btn-danger btn-sm" type="submit">刪除</button>
+                                    </form>
+                                    </p>
                                 </div>
                         </div>
                         </div>
@@ -114,9 +134,19 @@
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
-                                    <!---
-                        <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
-                        -->
+                                    <p>
+                                    <form action="modifyPhoto" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('POST')}}
+                                         <input type="hidden" name="id" value="{{$photodetail->id}}">
+                                        <button class="btn btn-success btn-sm" type="submit">修改</button>
+                                    </form>
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('DELETE')}}
+                                        <button class="btn btn-danger btn-sm" type="submit">刪除</button>
+                                    </form>
+                                    </p>
                                 </div>
                         </div>
                         </div>
@@ -135,9 +165,19 @@
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
-                                    <!---
-                        <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
-                        -->
+                                    <p>
+                                    <form action="modifyPhoto" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('POST')}}
+                                         <input type="hidden" name="id" value="{{$photodetail->id}}">
+                                        <button class="btn btn-success btn-sm" type="submit">修改</button>
+                                    </form>
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('DELETE')}}
+                                        <button class="btn btn-danger btn-sm" type="submit">刪除</button>
+                                    </form>
+                                    </p>
                                 </div>
                         </div>
                         </div>
@@ -156,9 +196,19 @@
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
-                                    <!---
-                        <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
-                        -->
+                                   <p>
+                                    <form action="modifyPhoto" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('POST')}}
+                                         <input type="hidden" name="id" value="{{$photodetail->id}}">
+                                        <button class="btn btn-success btn-sm" type="submit">修改</button>
+                                    </form>
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('DELETE')}}
+                                        <button class="btn btn-danger btn-sm" type="submit">刪除</button>
+                                    </form>
+                                    </p>
                                 </div>
                         </div>
                         </div>
@@ -178,9 +228,19 @@
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
-                                    <!---
-                        <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
-                        -->
+                                    <p>
+                                    <form action="modifyPhoto" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('POST')}}
+                                         <input type="hidden" name="id" value="{{$photodetail->id}}">
+                                        <button class="btn btn-success btn-sm" type="submit">修改</button>
+                                    </form>
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('DELETE')}}
+                                        <button class="btn btn-danger btn-sm" type="submit">刪除</button>
+                                    </form>
+                                    </p>
                                 </div>
                         </div>
                         </div>
@@ -205,9 +265,19 @@
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
-                                    <!---
-                        <p><a href="#" class="btn btn-primary btn-sm" role="button">Button</a> <a href="#" class="btn btn-default btn-sm" role="button">Button</a></p>
-                        -->
+                                    <p>
+                                    <form action="modifyPhoto" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('POST')}}
+                                         <input type="hidden" name="id" value="{{$photodetail->id}}">
+                                        <button class="btn btn-success btn-sm" type="submit">修改</button>
+                                    </form>
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                        {{csrf_field()}}
+                                         {{method_field('DELETE')}}
+                                        <button class="btn btn-danger btn-sm" type="submit">刪除</button>
+                                    </form>
+                                    </p>
                                 </div>
                             </div>
                         </div>
