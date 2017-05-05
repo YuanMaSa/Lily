@@ -16,9 +16,9 @@
           <!-- Nav tabs -->
           <ul class="nav nav-tabs" role="tablist">
 
-            <li role="presentation" class="active btncolor btn btn-primary"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">全部all</a></li>
-            <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle btncolor btn btn-primary" data-toggle="dropdown" href="#" role="button" aria-expanded="false" >
+            <li role="presentation" class="active btncolor btn btn-primary"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style="padding:30px 25px 30px 25px">全部all</a></li>
+            <li role="presentation" class="dropdown btncolor btn">
+            <a class=" dropdown-toggle" data-toggle="dropdown" href="#" role="tab" aria-expanded="false" style="width: 185px;height: 15px;font-size: 20px;text-align: center; padding:30px 25px 30px 25px">
                     乾燥製程分類 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu " role="menu">
@@ -30,9 +30,9 @@
 
                         </ul>
             </li>
-            <li role="presentation" class="btncolor btn btn-primary"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">日期分類</a></li>
-            <li role="presentation" class="dropdown">
-            <a class="dropdown-toggle btncolor btn btn-primary" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
+            <li role="presentation" class="btncolor btn btn-primary"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" style="padding:30px 25px 30px 25px">日期分類</a></li>
+            <li role="presentation" class="btncolor dropdown btn">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="tab" aria-expanded="false" style="width: 145px;height: 15px;font-size: 20px;text-align: center; padding:30px 25px 30px 25px">
                     園區分類 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu " role="menu">
