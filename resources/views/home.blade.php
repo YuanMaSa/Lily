@@ -55,34 +55,34 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.js"></script>
 <div data-masonry-options="{columnWidth: 105, itemSelector:.item}" class="img-container js-masonry" style="position: relative; height: 381.417px;">
-        <form   action="{{ url('/home') }}"  method="POST">
-                    {{ csrf_field() }}
 
           <!-- Tab panes -->
           <div class="tab-content"> <!--顯示全部-->
             <div role="tabpanel" class="tab-pane active masonry" id="home" >
-                    <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                   <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="row masonry" style="margin:50px 20px 30px 20px">
                     <div class="masonry masonry-columns-4 col-xs-12">
-                    @foreach ($photodetails1 as $photodetail)      
-                    <div class="masonry-item">
-                    <div class="media">       
+                    @foreach ($photodetails1 as $photodetail)
+                        <div class="masonry-item">
+                    <div class="media">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
                                     <p>
-                                    <form action="modifyPhoto" method="post">
+                                    <center>
+                                    <form action="modifyPhoto" method="post" style="display: inline;">
                                         {{csrf_field()}}
                                          {{method_field('POST')}}
                                          <input type="hidden" name="id" value="{{$photodetail->id}}">
                                         <button class="btn btn-success btn-sm" type="submit">修改</button>
                                     </form>
-                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post" style="display: inline">
                                         {{csrf_field()}}
                                          {{method_field('DELETE')}}
                                         <button class="btn btn-danger btn-sm" type="submit">刪除</button>
                                     </form>
+                                    </center>
                                     </p>
                                 </div>
                         </div>
@@ -98,23 +98,25 @@
                     <div class="masonry masonry-columns-4 col-xs-12">
                     @foreach ($photodetails2 as $photodetail)
                         <div class="masonry-item">
-                    <div class="media">       
+                    <div class="media">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
                                     <p>
-                                    <form action="modifyPhoto" method="post">
+                                    <center>
+                                    <form action="modifyPhoto" method="post" style="display: inline;">
                                         {{csrf_field()}}
                                          {{method_field('POST')}}
                                          <input type="hidden" name="id" value="{{$photodetail->id}}">
                                         <button class="btn btn-success btn-sm" type="submit">修改</button>
                                     </form>
-                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post" style="display: inline">
                                         {{csrf_field()}}
                                          {{method_field('DELETE')}}
                                         <button class="btn btn-danger btn-sm" type="submit">刪除</button>
                                     </form>
+                                    </center>
                                     </p>
                                 </div>
                         </div>
@@ -129,23 +131,25 @@
                     <div class="masonry masonry-columns-4 col-xs-12">
                     @foreach ($photodetails3 as $photodetail)
                       <div class="masonry-item">
-                    <div class="media">       
+                    <div class="media">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
                                     <p>
-                                    <form action="modifyPhoto" method="post">
+                                    <center>
+                                    <form action="modifyPhoto" method="post" style="display: inline;">
                                         {{csrf_field()}}
                                          {{method_field('POST')}}
                                          <input type="hidden" name="id" value="{{$photodetail->id}}">
                                         <button class="btn btn-success btn-sm" type="submit">修改</button>
                                     </form>
-                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post" style="display: inline">
                                         {{csrf_field()}}
                                          {{method_field('DELETE')}}
                                         <button class="btn btn-danger btn-sm" type="submit">刪除</button>
                                     </form>
+                                    </center>
                                     </p>
                                 </div>
                         </div>
@@ -160,23 +164,25 @@
                     <div class="masonry masonry-columns-4 col-xs-12">
                     @foreach ($photodetails4 as $photodetail)
                         <div class="masonry-item">
-                    <div class="media">       
+                    <div class="media">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
                                     <p>
-                                    <form action="modifyPhoto" method="post">
+                                    <center>
+                                    <form action="modifyPhoto" method="post" style="display: inline;">
                                         {{csrf_field()}}
                                          {{method_field('POST')}}
                                          <input type="hidden" name="id" value="{{$photodetail->id}}">
                                         <button class="btn btn-success btn-sm" type="submit">修改</button>
                                     </form>
-                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post" style="display: inline">
                                         {{csrf_field()}}
                                          {{method_field('DELETE')}}
                                         <button class="btn btn-danger btn-sm" type="submit">刪除</button>
                                     </form>
+                                    </center>
                                     </p>
                                 </div>
                         </div>
@@ -191,23 +197,25 @@
                     <div class="masonry masonry-columns-4 col-xs-12">
                     @foreach ($photodetails5 as $photodetail)
                         <div class="masonry-item">
-                    <div class="media">       
+                    <div class="media">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
                                    <p>
-                                    <form action="modifyPhoto" method="post">
+                                    <center>
+                                    <form action="modifyPhoto" method="post" style="display: inline;">
                                         {{csrf_field()}}
                                          {{method_field('POST')}}
                                          <input type="hidden" name="id" value="{{$photodetail->id}}">
                                         <button class="btn btn-success btn-sm" type="submit">修改</button>
                                     </form>
-                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post" style="display: inline">
                                         {{csrf_field()}}
                                          {{method_field('DELETE')}}
                                         <button class="btn btn-danger btn-sm" type="submit">刪除</button>
                                     </form>
+                                    </center>
                                     </p>
                                 </div>
                         </div>
@@ -223,23 +231,25 @@
                     <div class="masonry masonry-columns-4 col-xs-12">
                     @foreach ($photodetails6 as $photodetail)
                         <div class="masonry-item">
-                    <div class="media">       
+                    <div class="media">
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
                                     <p>
-                                    <form action="modifyPhoto" method="post">
+                                    <center>
+                                    <form action="modifyPhoto" method="post" style="display: inline;">
                                         {{csrf_field()}}
                                          {{method_field('POST')}}
                                          <input type="hidden" name="id" value="{{$photodetail->id}}">
                                         <button class="btn btn-success btn-sm" type="submit">修改</button>
                                     </form>
-                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post" style="display: inline">
                                         {{csrf_field()}}
                                          {{method_field('DELETE')}}
                                         <button class="btn btn-danger btn-sm" type="submit">刪除</button>
                                     </form>
+                                    </center>
                                     </p>
                                 </div>
                         </div>
@@ -257,8 +267,8 @@
                     @foreach ($photodetails7 as $photodetail)
             @if ($photodetail->address_id==$address->id)
             <div class="masonry-item">
-                    <div class="media"> 
-                        
+                    <div class="media">
+
                             <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">
                             <div class="thumbnail">
                                 <div class="caption">
@@ -266,17 +276,19 @@
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
                                     <p>
-                                    <form action="modifyPhoto" method="post">
+                                    <center>
+                                    <form action="modifyPhoto" method="post" style="display: inline;">
                                         {{csrf_field()}}
                                          {{method_field('POST')}}
                                          <input type="hidden" name="id" value="{{$photodetail->id}}">
                                         <button class="btn btn-success btn-sm" type="submit">修改</button>
                                     </form>
-                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post">
+                                    <form action="s3-image-upload/{{$photodetail->id}}" method="post" style="display: inline">
                                         {{csrf_field()}}
                                          {{method_field('DELETE')}}
                                         <button class="btn btn-danger btn-sm" type="submit">刪除</button>
                                     </form>
+                                    </center>
                                     </p>
                                 </div>
                             </div>
@@ -290,7 +302,6 @@
 
           @endforeach
           </div>
-                </form>
                 </div>
 
         <!--

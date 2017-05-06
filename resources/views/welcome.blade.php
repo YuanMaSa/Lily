@@ -9,8 +9,9 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <!-- Styles -->
+        <link href="{{ asset('css/rita_style.css') }}" rel="stylesheet">
         <style>
             html, body {
                 background-color: #fff;
@@ -64,7 +65,7 @@
             }
         </style>
     </head>
-    <body>
+    <body style="background-image: url('{{ asset('img/farm.png') }}');background-size: cover;">
     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
         <div class="flex-center position-ref full-height">
@@ -73,7 +74,7 @@
                     @if (Auth::check())
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{!! URL::route('auth/google')!!}">Login</a>
+                        <a href="{!! URL::route('auth/google')!!}" style="color: #FFFFFF;">Login</a>
                         
                     @endif
                 </div>
@@ -81,16 +82,12 @@
         
         </form>
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+                <div class="title m-b-md" style="color: #FFFFFF;">
+                    Welcome
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="links w3-button w3-black">
+                    <a href="/home" style="color: #FFFFFF;" >Enter Now</a>
                 </div>
             </div>
         </div>
