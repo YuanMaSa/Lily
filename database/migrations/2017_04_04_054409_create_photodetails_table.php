@@ -22,6 +22,8 @@ class CreatePhotodetailsTable extends Migration
             $table->double('b_value');
             $table->string('photo_url');
             $table->timestamps();
+            $table->integer('disease');
+            $table->integer('pest');
             $table->integer('user_id')->unsigned();
             $table->integer('process_id')->unsigned();
             $table->integer('address_id')->unsigned();
