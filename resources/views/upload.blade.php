@@ -164,8 +164,16 @@ $(function (){
 
   </form>
 
-
-  </div>
-
+<div class="demo"></div>
+<script>
+$('.demo').croppie({
+    url: 'img/farm.png',
+});
+</script>
+<!-- or even simpler -->
+<img class="my-image" src="img/farm.png" />
+<script>
+$('.my-image').croppie();
+</script>
 
 @endsection

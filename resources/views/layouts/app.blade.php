@@ -15,8 +15,9 @@
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ asset('css/masonry-docs.css') }}" rel="stylesheet">
     <link rel=stylesheet href="{{ asset('css/main.css') }}">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="{{asset('css/croppie.css')}}" />
     <link href="{{ asset('css/rita_style.css') }}" rel="stylesheet">
-
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -29,31 +30,17 @@
     <script src="{{ asset('js/bootstrap-waterfall.js') }}"></script>
     <script src="http://malsup.github.com/jquery.form.js"></script>
     <script src="{{ asset('js/masonry.pkgd.min.js') }}"></script>
+    <script src="{{asset('js/croppie.js')}}"></script>
     <script src="http://desandro.github.io/imagesloaded/imagesloaded.pkgd.min.js"></script>
-    <script>
-      $(function(){
-        /* 瀑布流區塊div */
-        var $container = $('.masonry');
-  
-        //當圖片讀取完畢才執行
-        $container.imagesLoaded(function (){
-          //選擇瀑布流的區塊名稱
-          $container.masonry({
-            itemSelector: '.item'
-        
-          })
-        
-        });
-      });
-    </script>
-<body  style="background-image: url(img/sky1.jpg);
+    
+<body  style="background-image: url(img/farm.png);
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: top;
             background-size: cover;">
 <div >
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top" style="background-color:#3770A9    ; padding: 10px">
+    <div id="app" style="margin-top: 80px;">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#3770A9; padding: 10px">
             <div class="container">
                 <div class="navbar-header">
 
@@ -66,7 +53,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}" style="font-size: 35px;color: #FFFFFF">
+                    <a class="navbar-brand" href="{{ url('/') }}" style="font-size: 30px;color: #FFFFFF">
                         金針花辨識系統
                     </a>
                 </div>
@@ -84,30 +71,21 @@
                             </ul>
                             </nav>
                         @else
-                        <li ><a a href="{{ url('/home') }}" style="color: #FFFFFF"><img src="img/cccloud.png" style="width:45px">瀏覽圖片</a></li>
+                        <li ><a a href="{{ url('/home') }}" style="color: #FFFFFF">瀏覽圖片</a></li>
 
 
-                            <li ><a data-toggle="modal" data-target="#myModal" class="clickable" style="color: #FFFFFF"> <img src="img/cccloud.png" style="width:45px">新增園區</a></li>
-
-                            <li ><a href="{{ url('s3-image-upload') }}" style="color: #FFFFFF"><img src="img/cccloud.png" style="width:45px">上傳圖片</a></li>
-                            <li class="dropdown" >
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" style="color: #FFFFFF">
-                                   <img src="img/cccloud.png" style="width:45px"> {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/address') }}" >園區檢視</a></li>
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
+                            <li class="nav-item"><a data-toggle="modal" data-target="#myModal" class="clickable" style="color: #FFFFFF;cursor:pointer; ">新增園區</a></li>
+                            <li class="nav-item"><a href="{{ url('/address') }}" style="color: #FFFFFF">園區檢視</a></li>
+                            <li class="nav-item"><a href="{{ url('s3-image-upload') }}" style="color: #FFFFFF">上傳圖片</a></li>
+                            <li class="nav-item"><a href="#" style="color: #FFFFFF">{{ Auth::user()->name }} </a></li>
+                             <li class="nav-item">
+                             <a href="{{ route('logout') }}" style="color: #FFFFFF" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();" >
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none; color: #FFFFFF">
+                                            登出</a>
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none; color: #FFFFFF">
                                             {{ csrf_field() }}
                                         </form>
-                                    </li>
+                            </li>
 
                                 </ul>
                             </li>
