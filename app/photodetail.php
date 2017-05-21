@@ -20,5 +20,8 @@ class photodetail extends Model
         return $this->belongsTo(address::class);
     }
 
-
+    public function pests()
+    {
+        return $this->belongsToMany('LilyFlower\pest');
+    }
 }

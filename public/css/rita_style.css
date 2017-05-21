@@ -692,7 +692,7 @@ button, .button {
   position: relative;
   background-color: purple;
   color: white;
-  padding: 10px 15px;
+  /*padding: 10px 15px;*/
   border-radius: 3px;
   border: 1px solid #cccccc;
   font-size: 16px;
@@ -700,7 +700,7 @@ button, .button {
   display: block;
   cursor: pointer;
   margin: 0 auto;
-  width: 200px;
+  /*width: 200px;*/
   margin-bottom: 10px;
   text-transform: uppercase;
 }

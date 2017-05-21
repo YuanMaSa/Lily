@@ -4,7 +4,7 @@
 <div class="container">
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-offset-2 col-md-8">
-        <div class="table-responsive">
+        <div class="table-responsive" style="background-color:rgba(255, 255, 255, 0.98);">
             <table class="table">
                 <tr>
                     <td>編號</td>

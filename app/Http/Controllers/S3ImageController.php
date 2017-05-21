@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use LilyFlower\photodetail;
 use LilyFlower\address;
 use LilyFlower\process;
+use LilyFlower\pest;
+use LilyFlower\disease;
 use LilyFlower\User;
 use Auth;
-
+use DB;
 use Storage;
 
 class S3ImageController extends Controller
@@ -22,12 +24,23 @@ class S3ImageController extends Controller
 
     public function index()
     {
-        $user_id=Auth::id();
-        $addresses = User::find($user_id)->address;//查詢使用者的園區
-        $processes=process::all();
-        $photodetails=photodetail::all();
-        // echo $user_id;
-        return view('upload',compact('addresses','processes','photodetails'));//return the file names index in address folder
+        if (Auth::check())
+            {
+                // The user is logged in...
+            $user_id=Auth::id();
+            $addresses = User::find($user_id)->address;//查詢使用者的園區
+            $processes=process::all();
+            $photodetails=photodetail::all();
+            $photodetails=photodetail::all();
+            $diseases=disease::all();
+            $pests=pest::all();
+            // echo $user_id;
+            return view('upload',compact('addresses','processes','photodetails','diseases','pests'));
+            }
+            else{
+                return redirect('login');
+            }
+            //return the file names index in address folder
     }
     public function imageUpload()
     {
@@ -58,11 +71,30 @@ class S3ImageController extends Controller
         $photodetail->L_value = $request->L_value;
         $photodetail->a_value = $request->a_value;
         $photodetail->b_value = $request->b_value;
+        $photodetail->disease = $request->disease;
+        $disease_list=$request->input('disease_list');
+        $pest_list=$request->input('pest_list');
+        $photodetail->pest = $request->pest;
         $photodetail->user_id = $request->user_id;
         $photodetail->process_id = $request->process_id;
         $photodetail->address_id = $request->address_id;
         $photodetail->photo_url=$imageName;//將照片網址存入photo_url中
         $photodetail->save();
+        $id = $photodetail->id;
+        if ($photodetail->pest==1) {
+            for ($i=0; $i <count($pest_list) ; $i++) { 
+            # code...
+                DB::table('photodetail_pest')->insert(
+                ['photodetail_id' => $id, 'pest_id' => $pest_list[$i]]);
+            }
+        }
+        if ($photodetail->disease==1) {
+            for ($i=0; $i <count($disease_list) ; $i++) { 
+            # code...
+                DB::table('photodetail_disease')->insert(
+                ['photodetail_id' => $id, 'disease_id' => $disease_list[$i]]);
+            }
+        }
         return redirect('home');
     }
     // public function store(Request $request)

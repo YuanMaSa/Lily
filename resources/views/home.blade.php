@@ -62,7 +62,8 @@
                     @foreach ($photodetails1 as $photodetail)
                     <div class="col-md-3 col-xs-12">
                         <div class="thumbnail">
-                            <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">    <div class="caption">
+                            <center><div style="background-image: url('{{$photodetail->photo_url}}');background-repeat: no-repeat;background-size: cover;width: 200px;height: 200px;margin-top: 20px;"></div></center><!-- <img src="{{$photodetail->photo_url}}" alt="..." class="img-responsive">     -->
+                            <div class="caption">
                                     <p>含水量：{{$photodetail->water}} %</p>
                                     <p>乾燥製程：{{$photodetail->method}}</p>
                                     <p>日期：{{$photodetail->created_at}}</p>
