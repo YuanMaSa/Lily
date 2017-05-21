@@ -120,8 +120,8 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                            <button type="submit" class="btn btn-primary">確認</button>
+                            <button type="button" class="btn btn-success" data-dismiss="modal">取消</button>
+                            <button type="submit" class="btn btn-success">確認</button>
                         </div>
                     </div>
                 </div>

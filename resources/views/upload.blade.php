@@ -230,7 +230,7 @@ $(function (){
      </div>
   <div class="row">
    <div class="col-sm-2 col-sm-offset-5 col-md-2 col-md-offset-5">
-    <button type="submit" class="btn btn-primary btn-lg" style="margin: 50px 0px 50px;padding: 10px;">確認</button>
+    <button type="submit" class="btn btn-success btn-lg" style="margin: 50px 0px 50px;padding: 10px;">確認</button>
    </div>
    </div>
 
