@@ -119,7 +119,7 @@ class S3ImageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id,Request $request)
+    public function updateimage(Request $request,$id)
     {   $user_id=Auth::id();
         $this->validate($request, [
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:100000',
@@ -138,18 +138,63 @@ class S3ImageController extends Controller
         $photodetail->a_value = $request->a_value;
         $photodetail->b_value = $request->b_value;
         $photodetail->user_id = $user_id;
+        $photodetail->disease = $request->disease;
+        $disease_list=$request->input('disease_list');
+        $pest_list=$request->input('pest_list');
+        $photodetail->pest = $request->pest;
         $photodetail->process_id = $request->process_id;
         $photodetail->address_id = $request->address_id;
         $photodetail->photo_url=$imageName;//將照片網址存入photo_url中
         $photodetail->save();
+        if ($photodetail->pest==1) {
+            DB::table('photodetail_pest')->where('photodetail_id', '=', $id)->delete();
+            for ($i=0; $i <count($pest_list) ; $i++) { 
+            # code...
+                DB::table('photodetail_pest')->insert(
+                ['photodetail_id' => $id, 'pest_id' => $pest_list[$i]]);
+            }
+        }else{
+            DB::table('photodetail_pest')->where('photodetail_id', '=', $id)->delete();
+        }
+        if ($photodetail->disease==1) {
+            DB::table('photodetail_disease')->where('photodetail_id', '=', $id)->delete();
+            for ($i=0; $i <count($disease_list) ; $i++) { 
+            # code...
+                DB::table('photodetail_disease')->insert(
+                ['photodetail_id' => $id, 'disease_id' => $disease_list[$i]]);
+            }
+        }else{
+            DB::table('photodetail_disease')->where('photodetail_id', '=', $id)->delete();
+        }
         return redirect('home');
+    }
+     public function show($id)
+    {
+        //
+    }
+    public function edit($id)
+    {
     }
     public function modifyPhoto(Request $request)
     {   $user_id=Auth::id();
         $photodetail = photodetail::find($request->id);
         $addresses = User::find($user_id)->address;//查詢使用者的園區
         $processes=process::all();
-        return view('modifyPhoto',compact('photodetail','addresses','processes'));
+        $diseases=disease::all();
+        $pests=pest::all();
+        $disease_lists=[];
+        $pest_lists=[];
+        if($photodetail->disease==0){
+            $disease_lists=0;
+        }else{
+            $disease_lists = DB::select('select disease_id from photodetail_disease where photodetail_id = ?',[$photodetail->id]);
+        }
+        if($photodetail->pest==0){
+            $pest_lists=0;
+        }else{
+            $pest_lists = DB::select('select * from photodetail_pest where photodetail_id = ?',[$photodetail->id]);
+        }
+        return view('modifyPhoto',compact('photodetail','addresses','processes','disease_lists','pest_lists','diseases','pests'));
     }
     public function destroy($id)
     {

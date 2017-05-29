@@ -38,8 +38,11 @@ Route::resource('address', 'AddressController');
 //Role 的增刪查改
 Route::resource('role', 'RoleController');
 Route::get('s3-image-upload','S3ImageController@imageUpload');
-Route::resource('s3-image-upload','S3ImageController');
+//Route::resource('s3-image-upload','S3ImageController');
 
 Route::post('s3-image-upload','S3ImageController@imageUploadPost');
-Route::put('s3-image-upload/{id}', 'S3ImageController@update');
+Route::put('image-update/{id}', 'S3ImageController@updateimage');
+Route::get('s3-image-upload', 'S3ImageController@index');
+
+Route::delete('image-update/{id}', 'S3ImageController@destroy');
 
