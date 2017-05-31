@@ -44,5 +44,5 @@ Route::post('s3-image-upload','S3ImageController@imageUploadPost');
 Route::put('image-update/{id}', 'S3ImageController@updateimage');
 Route::get('s3-image-upload', 'S3ImageController@index');
 
-Route::delete('image-update/{id}', 'S3ImageController@destroy');
+Route::delete('s3-image-upload/{id}', 'S3ImageController@destroy');
 
