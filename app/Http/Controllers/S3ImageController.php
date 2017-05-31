@@ -185,12 +185,12 @@ class S3ImageController extends Controller
         $disease_lists=[];
         $pest_lists=[];
         if($photodetail->disease==0){
-            $disease_lists=0;
+            $disease_lists=[];
         }else{
             $disease_lists = DB::select('select disease_id from photodetail_disease where photodetail_id = ?',[$photodetail->id]);
         }
         if($photodetail->pest==0){
-            $pest_lists=0;
+            $pest_lists=[];
         }else{
             $pest_lists = DB::select('select * from photodetail_pest where photodetail_id = ?',[$photodetail->id]);
         }

@@ -171,7 +171,12 @@ $(function (){
       </div>
        <div class="col-sm-8 control-label">
         <div id="showDisease" class="checkbox-inline" style="transition: transform 500ms ease-out;">
+         @if($photodetail->disease==0)
+         @else
           @foreach ($diseases as $disease)
+            <?php
+                $i=0;
+            ?>  
             @foreach($disease_lists as $diseaseChoose)
               @if($diseaseChoose->disease_id==$disease->id)
                 <?php
@@ -196,6 +201,7 @@ $(function (){
                    }
                 ?>
           @endforeach
+        @endif
         </div>
        </div>
     </div>
@@ -205,9 +211,9 @@ $(function (){
       </div>
        <div class="col-sm-7 control-label">
        <center>
-       @if($photodetail->disease==0)
+       @if($photodetail->pest==0)
          <input type="radio" name="pest" id="pest_check_none" value="0" checked="checked">無
-          <input type="radio" name="pest" id="pest_check" value="1">有
+         <input type="radio" name="pest" id="pest_check" value="1">有
        @else
           <input type="radio" name="pest" id="pest_check_none" value="0" checked="checked">無
           <input type="radio" name="pest" id="pest_check" value="1" checked="checked">有
@@ -232,7 +238,15 @@ $(function (){
       </div>
        <div class="col-sm-10 control-label">
         <div id="showPest" class="checkbox-inline" style="transition: transform 500ms ease-out;">
+        @if($photodetail->pest==0)
           @foreach ($pests as $pest)
+          <label class="checkbox-inline"><input type="checkbox" style="display: inline-flex;" name="pest_list[]" value="{{$pest->id}}">{{$pest->pest_name}}<br></label>
+          @endforeach
+        @else
+          @foreach ($pests as $pest)
+            <?php
+              $j=0;
+            ?>
             @foreach($pest_lists as $pestChoose)
               @if($pestChoose->pest_id==$pest->id)
                <?php
@@ -257,6 +271,7 @@ $(function (){
                    }
                 ?>
           @endforeach
+        @endif
         </div>
        </div>
     </div>
