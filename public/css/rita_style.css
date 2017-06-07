@@ -422,6 +422,10 @@ column-count: 2;
 -moz-column-count: 1;
 column-count: 1;
 }
+  .displat_sort{
+    display: none;
+    color:#FFFFFF;
+  }
 }
 
 .masonry .masonry-item{
@@ -717,3 +721,6 @@ button input[type="file"], .button input[type="file"] {
   left: 0;
   opacity: 0;
 }
+.displat_sort{
+    color:#FFFFFF;
+  }
