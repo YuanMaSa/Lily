@@ -16,7 +16,7 @@
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav navbar-nav navbar-right" role="tablist" >
 
-                <li role="presentation" class="active btncolor btn btn-primary button"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style="padding:30px 25px 30px 25px;">全部all</a></li>
+                <li role="presentation" class="active btncolor btn btn-primary button"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style="padding:30px 25px 30px 25px;">瀏覽全部照片</a></li>
                 <li role="presentation" class="dropdown btncolor btn button">
                 <a class=" dropdown-toggle" data-toggle="dropdown" href="#" role="tab" aria-expanded="false" style="width: 185px;height: 15px;font-size: 16px;text-align: center; padding:30px 25px 30px 25px;">
                         乾燥製程分類 <span class="caret"></span>
@@ -28,7 +28,7 @@
                     <li role="presentation" ><a href="#profile4" aria-controls="profile" role="tab" data-toggle="tab">其他製程</a></li>
                 </ul>
                 </li>
-                <li role="presentation" class="btncolor btn btn-primary button"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" style="padding:30px 25px 30px 25px">日期分類</a></li>
+                <li role="presentation" class="btncolor btn btn-primary button"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" style="padding:30px 25px 30px 25px">日期排序</a></li>
                 <li role="presentation" class="btncolor dropdown btn button">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="tab" aria-expanded="false" style="width: 145px;height: 15px;font-size: 16px;text-align: center; padding:30px 25px 30px 25px">
                         園區分類 <span class="caret"></span>
@@ -255,11 +255,11 @@
                     </div>
             </div>
             @foreach ($addresses as $address)
-
             <div role="tabpanel" class="tab-pane" id="settings{{$address->id}}">
                 <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                     <div class="row" style="margin:50px 20px 30px 20px">
                     @foreach ($photodetails7 as $photodetail)
+                    @if($photodetail->address_id==$address->id)
                     <div class="col-md-3 col-xs-12">
                         <div class="thumbnail">
                         <center><div style="background-image: url('{{$photodetail->photo_url}}');background-repeat: no-repeat;background-size: cover;width: 200px;height: 200px;margin-top: 20px;background-position:center;"></div></center>
@@ -286,6 +286,7 @@
                                 </div>
                         </div>
                     </div>
+                    @endif
                     @endforeach
                     </div>
           </div>
