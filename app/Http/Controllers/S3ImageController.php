@@ -71,10 +71,10 @@ class S3ImageController extends Controller
         $photodetail->L_value = $request->L_value;
         $photodetail->a_value = $request->a_value;
         $photodetail->b_value = $request->b_value;
-        $photodetail->disease = $request->disease;
+        $photodetail->disease = 0;
         $disease_list=$request->input('disease_list');
         $pest_list=$request->input('pest_list');
-        $photodetail->pest = $request->pest;
+        $photodetail->pest = 0;
         $photodetail->user_id = $request->user_id;
         $photodetail->process_id = $request->process_id;
         $photodetail->address_id = $request->address_id;
@@ -138,10 +138,10 @@ class S3ImageController extends Controller
         $photodetail->a_value = $request->a_value;
         $photodetail->b_value = $request->b_value;
         $photodetail->user_id = $user_id;
-        $photodetail->disease = $request->disease;
+        $photodetail->disease = 0;
         $disease_list=$request->input('disease_list');
         $pest_list=$request->input('pest_list');
-        $photodetail->pest = $request->pest;
+        $photodetail->pest = 0;
         $photodetail->process_id = $request->process_id;
         $photodetail->address_id = $request->address_id;
         $photodetail->photo_url=$imageName;//將照片網址存入photo_url中

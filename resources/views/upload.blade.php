@@ -130,7 +130,7 @@ $(function (){
     <div class="col-sm-10 control-label ">
      <label  for="exampleInputEmail1" style="color: rgba(255, 0, 0, 0.54);">*所屬園區若為空白，請先新增園區</label>
     </div>
-     <div class="form-group">
+<!--      <div class="form-group">
       <div class="col-sm-3 control-label ">
        <label  for="exampleInputEmail1">病害</label>
       </div>
@@ -152,8 +152,8 @@ $(function (){
                 
         </script>
        </div>
-    </div>
-    <div class="form-group">
+    </div> -->
+<!--     <div class="form-group">
       <div class="col-sm-2 control-label ">
        <label  for="exampleInputEmail1"></label>
       </div>
@@ -164,8 +164,8 @@ $(function (){
           @endforeach
         </div>
        </div>
-    </div>
-    <div class="form-group">
+    </div> -->
+ <!--    <div class="form-group">
       <div class="col-sm-3 control-label ">
        <label  for="exampleInputEmail1">蟲害</label>
       </div>
@@ -188,8 +188,8 @@ $(function (){
        </center>
         
        </div>
-    </div>
-    <div class="form-group">
+    </div> -->
+   <!--  <div class="form-group">
       <div class="col-sm-0 control-label ">
        <label  for="exampleInputEmail1"></label>
       </div>
@@ -200,7 +200,7 @@ $(function (){
           @endforeach
         </div>
        </div>
-    </div>
+    </div> -->
     </div>
 
 
