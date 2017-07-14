@@ -20,6 +20,9 @@ class CreatePhotodetailsTable extends Migration
             $table->double('L_value');
             $table->double('a_value');
             $table->double('b_value');
+            $table->double('h');
+            $table->double('s');
+            $table->double('v');
             $table->string('photo_url');
             $table->timestamps();
             $table->integer('disease');

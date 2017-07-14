@@ -64,10 +64,11 @@ $(function (){
     <div class="col-sm-3 control-label ">
      <label  for="exampleInputEmail1" >含水量</label>
     </div>
-       <div class="col-sm-7 control-label">
-        <input type="number" min="0" max="100" class="form-control" id="exampleInputEmail1" placeholder="含水量" name="water" required>
+       <div class="col-sm-4 control-label">
+        <input type="number" min="0" max="100" class="form-control" id="exampleInputEmail1" placeholder="含水量" name="water" >
        </div>
        <div class="col-sm-1 control-label">%</div>
+       <div class="col-sm-3 control-label"><button name="predict" value="1" type="submit" class="btn btn-success btn-lg">預測</button></div>
     </div>
     <div class="form-group">
     <div class="col-sm-3 control-label ">

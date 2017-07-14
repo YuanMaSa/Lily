@@ -294,6 +294,17 @@
           @endforeach
           </div>
                 </div>
+                    <?php 
+
+                    // $command = escapeshellcmd('/Users/mindy/Desktop/test.py');
+                    $command = escapeshellcmd('./../test.py');
+                    $output = shell_exec($command);
+                    echo "<h1 style='color:#ffffff;'>".$output."</h1>";
+                    echo "helllllllllllllllllllllllo";
+                    $str1="3,5,5,32";
+                    $array1 = explode(",",$str1);
+                    echo "<h1 style='color:#ffffff;'> !".$array1[0]." !  ".$array1[1]." !  ".$array1[2]." !  ".$array1[3]." !  ";
+                    ?>
 
         <!--
         <form>

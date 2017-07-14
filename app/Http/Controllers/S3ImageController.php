@@ -55,47 +55,133 @@ class S3ImageController extends Controller
 
     public function imageUploadPost(Request $request)
     {
-    	$this->validate($request, [
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:100000',
-        ]);//限制照片副檔名及大小
-        $imageName = time().'.'.$request->image->getClientOriginalExtension();
-        $image = $request->file('image');
-        $t = Storage::disk('s3')->put($imageName, file_get_contents($image), 'public');
-        $imageName = Storage::disk('s3')->url($imageName);
-        // return back()
-        //     ->with('success','Image Uploaded successfully.')
-        //     ->with('path',$imageName);
-        $photodetail=new photodetail;
-        $photodetail->water = $request->water;
-        $photodetail->take_time = $request->take_time;
-        $photodetail->L_value = $request->L_value;
-        $photodetail->a_value = $request->a_value;
-        $photodetail->b_value = $request->b_value;
-        $photodetail->disease = 0;
-        $disease_list=$request->input('disease_list');
-        $pest_list=$request->input('pest_list');
-        $photodetail->pest = 0;
-        $photodetail->user_id = $request->user_id;
-        $photodetail->process_id = $request->process_id;
-        $photodetail->address_id = $request->address_id;
-        $photodetail->photo_url=$imageName;//將照片網址存入photo_url中
-        $photodetail->save();
-        $id = $photodetail->id;
-        if ($photodetail->pest==1) {
-            for ($i=0; $i <count($pest_list) ; $i++) { 
-            # code...
-                DB::table('photodetail_pest')->insert(
-                ['photodetail_id' => $id, 'pest_id' => $pest_list[$i]]);
+    	if($request->predict!=1){
+            $this->validate($request, [
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:100000',
+            ]);//限制照片副檔名及大小
+            $imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image = $request->file('image');
+            $t = Storage::disk('s3')->put($imageName, file_get_contents($image), 'public');
+            $imageName = Storage::disk('s3')->url($imageName);
+            // return back()
+            //     ->with('success','Image Uploaded successfully.')
+            //     ->with('path',$imageName);
+            $photodetail=new photodetail;
+            $photodetail->water = $request->water;
+            $photodetail->take_time = $request->take_time;
+            $photodetail->L_value = $request->L_value;
+            $photodetail->a_value = $request->a_value;
+            $photodetail->b_value = $request->b_value;
+            $photodetail->disease = 0;
+            $disease_list=$request->input('disease_list');
+            $pest_list=$request->input('pest_list');
+            $photodetail->pest = 0;
+            $photodetail->user_id = $request->user_id;
+            $photodetail->process_id = $request->process_id;
+            $photodetail->address_id = $request->address_id;
+            $photodetail->photo_url=$imageName;//將照片網址存入photo_url中
+            $photodetail->save();
+            $id = $photodetail->id;
+            if ($photodetail->pest==1) {
+                for ($i=0; $i <count($pest_list) ; $i++) { 
+                # code...
+                    DB::table('photodetail_pest')->insert(
+                    ['photodetail_id' => $id, 'pest_id' => $pest_list[$i]]);
+                }
             }
-        }
-        if ($photodetail->disease==1) {
-            for ($i=0; $i <count($disease_list) ; $i++) { 
-            # code...
-                DB::table('photodetail_disease')->insert(
-                ['photodetail_id' => $id, 'disease_id' => $disease_list[$i]]);
+            if ($photodetail->disease==1) {
+                for ($i=0; $i <count($disease_list) ; $i++) { 
+                # code...
+                    DB::table('photodetail_disease')->insert(
+                    ['photodetail_id' => $id, 'disease_id' => $disease_list[$i]]);
+                }
             }
+            return redirect('home');
+        }else{
+
+            $take_time = $request->take_time;
+            $L_value= $request->L_value;
+            $a_value = $request->a_value;
+            $b_value = $request->b_value;
+            $this->validate($request, [
+                'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:100000',
+            ]);//限制照片副檔名及大小
+            $imageName = time().'.'.$request->image->getClientOriginalExtension();
+            $image = $request->file('image');
+            $t = Storage::disk('s3')->put($imageName, file_get_contents($image), 'public');
+            #echo $imageName;
+            $img=$imageName;
+            $imageName = Storage::disk('s3')->url($imageName);
+            $url=$imageName;
+            $photodetail=new photodetail;
+            $photodetail->water = 0;
+            $photodetail->take_time = $request->take_time;
+            $photodetail->L_value = $request->L_value;
+            $photodetail->a_value = $request->a_value;
+            $photodetail->b_value = $request->b_value;
+            $photodetail->disease = 0;
+            $disease_list=$request->input('disease_list');
+            $pest_list=$request->input('pest_list');
+            $photodetail->pest = 0;
+            $photodetail->user_id = $request->user_id;
+            $photodetail->process_id = $request->process_id;
+            $photodetail->address_id = $request->address_id;
+            $photodetail->photo_url=$imageName;//將照片網址存入photo_url中
+            $photodetail->save();
+            $id = $photodetail->id;
+            if ($photodetail->pest==1) {
+                for ($i=0; $i <count($pest_list) ; $i++) { 
+                # code...
+                    DB::table('photodetail_pest')->insert(
+                    ['photodetail_id' => $id, 'pest_id' => $pest_list[$i]]);
+                }
+            }
+            if ($photodetail->disease==1) {
+                for ($i=0; $i <count($disease_list) ; $i++) { 
+                # code...
+                    DB::table('photodetail_disease')->insert(
+                    ['photodetail_id' => $id, 'disease_id' => $disease_list[$i]]);
+                }
+            }
+            #echo("take_time : ".$take_time." L value : ".$L_value." a value : ".$a_value." b value : ".$b_value." image_url : ".$imageName);
+
+                    // $command = escapeshellcmd('/Users/mindy/Desktop/test.py');
+            #$download='wget '.$imageName;
+            #$commandDownload = shell_exec($download);
+            #$imagePosition='./../opencvExportHSV.py ./../public/'.$img;
+            $image_command='./../opencvExportHSV_v2.py '.$imageName.' '.$L_value.' '.$a_value.' '.$b_value.' '.$take_time;
+            #$command = escapeshellcmd($image_command);
+            #$command="./../opencvExportHSV.py ".$imageName;
+            #echo "<br>command : ".$image_command;
+            $output = shell_exec($image_command);
+            // echo "<br><p>".$output."</p>";
+            $array1 = explode(",",$output);
+            $photodetail->water=$array1[0];
+            $photodetail->h=$array1[1];
+            $photodetail->s=$array1[2];
+            $photodetail->v=$array1[3];
+            $photodetail->save();
+            $user_id=Auth::id();
+            
+            $addresses = User::find($user_id)->address;//查詢使用者的園區
+            $processes=process::all();
+            $diseases=disease::all();
+            $pests=pest::all();
+            $disease_lists=[];
+            $pest_lists=[];
+            if($photodetail->disease==0){
+                $disease_lists=[];
+            }else{
+                $disease_lists = DB::select('select disease_id from photodetail_disease where photodetail_id = ?',[$photodetail->id]);
+            }
+            if($photodetail->pest==0){
+                $pest_lists=[];
+            }else{
+                $pest_lists = DB::select('select * from photodetail_pest where photodetail_id = ?',[$photodetail->id]);
+            }
+            //echo($photodetail->water);
+            return view('modifyPhoto',compact('photodetail','addresses','processes','disease_lists','pest_lists','diseases','pests'));
         }
-        return redirect('home');
     }
     // public function store(Request $request)
     // {

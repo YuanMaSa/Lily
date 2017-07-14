@@ -61,9 +61,12 @@ $(function (){
      <div class="form-group">
     <div class="col-sm-3 control-label ">
      <label  for="exampleInputEmail1" >含水量</label>
+     <?php
+     $water=$photodetail->water;
+     ?>
     </div>
        <div class="col-sm-7 control-label">
-        <input type="number" min="0" max="100" class="form-control" id="exampleInputEmail1" placeholder="含水量" name="water" value="{{$photodetail->water}}" required>
+  <input type="number" class="form-control" id="exampleInputEmail1" placeholder="含水量" name="water" required value="{{$water}}" min="0" max="100" >
        </div>
        <div class="col-sm-1 control-label">%</div>
     </div>
