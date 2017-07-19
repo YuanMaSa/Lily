@@ -297,7 +297,7 @@
                     <?php 
 
                     // $command = escapeshellcmd('/Users/mindy/Desktop/test.py');
-                    $command = escapeshellcmd('./../test.py');
+                    $command = escapeshellcmd('./../test.py 1 2 3 6 7 8');
                     $output = shell_exec($command);
                     echo "<h1 style='color:#ffffff;'>".$output."</h1>";
                     echo "helllllllllllllllllllllllo";

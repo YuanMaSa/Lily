@@ -295,9 +295,9 @@ $(function (){
     <div class="form-group">
 
        <div class="col-sm-3 col-sm-offset-1 control-label " >
-       <div style="background-image: url(img/cloud.png);width:250px;height: 150px; margin-left:50px;background-repeat: no-repeat; " >
+       <!-- <div style="background-image: url(img/cloud.png);width:250px;height: 150px; margin-left:50px;background-repeat: no-repeat; " >
         <input required="required" type='file' class="upl" name="image" style="padding: 70px 45px">
-       </div>
+       </div> -->
         <img src="{{$photodetail->photo_url}}" class="preview" style="max-width: 150px; max-height: 200px; margin: 20px">
     </div>
     </div>
