@@ -1,33 +1,5 @@
 #!/usr/bin/env python3
-import cv2
-import urllib
-import urllib.request
-import numpy as np
-import ssl
 import sys
-
-x=sys.argv[1]
-ssl._create_default_https_context = ssl._create_unverified_context
-#url = "https://s3-ap-northeast-1.amazonaws.com/lilyflower/1500021125.jpg"
-url_response = urllib.request.urlopen(x)
-img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
-img = cv2.imdecode(img_array, -1)
-# img = cv2.imread('https://s3-ap-northeast-1.amazonaws.com/lilyflower/1500021125.jpg')
-
-px = img[100,100]
-#print(px)
-hsv_px = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
-hsv_px = hsv_px[100,100]
-#print(hsv_px)
-hsvarr = hsv_px.astype(int)
-h = hsvarr[0]
-s = hsvarr[1]
-v = hsvarr[2]
-# print(h)
-# print(s)
-# print(v)
-# -*- coding: UTF-8 -*-
-
 import os
 from time import time
 import pandas as pd
@@ -68,7 +40,7 @@ def extract_features(record,featureEnd):
 def PrepareData(sc): 
     #----------------------1.匯入並轉換資料-------------
     # print("開始匯入資料...")
-    rawDataWithHeader = sc.textFile("/Users/mindy/MP21622_example/pythonsparkexample/PythonProject/data/lilyflower.csv")
+    rawDataWithHeader = sc.textFile("/Users/mindy/laravel-project/Lily/storage/public/lilyflower1.csv")
     header = rawDataWithHeader.first() 
     rawData = rawDataWithHeader.filter(lambda x:x !=header)    
     lines = rawData.map(lambda x: x.split(","))
@@ -91,15 +63,16 @@ def PrepareData(sc):
 def PredictData(sc,model): 
     #----------------------1.匯入並轉換資料-------------
     # print("開始匯入資料...")
-    l_value=sys.argv[2]
-    a_value=sys.argv[3]
-    b_value=sys.argv[4]
-    take_time=sys.argv[5]
+    l_value=sys.argv[1]
+    a_value=sys.argv[2]
+    b_value=sys.argv[3]
+    take_time=sys.argv[4]
     water=0
-    # h_value=h
-    # s_value=s
-    # v_value=v
-    process_id=2
+    h=sys.argv[6]
+    s=sys.argv[7]
+    v=sys.argv[8]
+    process_id=sys.argv[5]
+
     #rawDataWithHeader = sc.textFile("/Users/mindy/MP21622_example/pythonsparkexample/PythonProject/data/lilyflower1.csv")
     #header = rawDataWithHeader.first() 
     #rawData = rawDataWithHeader.filter(lambda x:x !=header)
@@ -156,7 +129,7 @@ def PredictData(sc,model):
                             "  , 實際:" + str(label) + result +",  誤差:" + str(error)
         
         #print(dataDesc)
-        print(str(predict)+','+str(h)+','+str(s)+','+str(v))
+        print(predict)
         
 
     
