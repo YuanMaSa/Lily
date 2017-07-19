@@ -166,8 +166,10 @@ return [
         /*
          * Package Service Providers...
          */
+        
         Laravel\Tinker\TinkerServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
+        'Maatwebsite\Excel\ExcelServiceProvider',
         /*
          * Application Service Providers...
          */
@@ -176,6 +178,7 @@ return [
         // LilyFlower\Providers\BroadcastServiceProvider::class,
         LilyFlower\Providers\EventServiceProvider::class,
         LilyFlower\Providers\RouteServiceProvider::class,
+
 
     ],
 
@@ -226,6 +229,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+        'Excel' => 'Maatwebsite\Excel\Facades\Excel',
     ],
 
 ];

@@ -46,3 +46,6 @@ Route::get('s3-image-upload', 'S3ImageController@index');
 
 Route::delete('s3-image-upload/{id}', 'S3ImageController@destroy');
 
+Route::get('importExport', 'MaatwebsiteDemoController@importExport');
+Route::get('downloadExcel/{type}', 'MaatwebsiteDemoController@downloadExcel');
+Route::post('importExcel', 'MaatwebsiteDemoController@importExcel');
