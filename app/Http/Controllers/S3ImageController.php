@@ -69,7 +69,11 @@ class S3ImageController extends Controller
             //     ->with('success','Image Uploaded successfully.')
             //     ->with('path',$imageName);
             $photodetail=new photodetail;
-            $photodetail->water = $request->water;
+            if($request->water==null){
+                $photodetail->water = 0;
+            }else{
+                $photodetail->water = $request->water;
+            }
             $photodetail->take_time = $request->take_time;
             $photodetail->L_value = $request->L_value;
             $photodetail->a_value = $request->a_value;
@@ -82,6 +86,11 @@ class S3ImageController extends Controller
             $photodetail->process_id = $request->process_id;
             $photodetail->address_id = $request->address_id;
             $photodetail->photo_url=$imageName;//將照片網址存入photo_url中
+            $output2 = shell_exec('./../openCV.py '.$imageName);
+            $array1 = explode(",",$output2);
+            $photodetail->h=$array1[0];
+            $photodetail->s=$array1[1];
+            $photodetail->v=$array1[2];
             $photodetail->save();
             $id = $photodetail->id;
             if ($photodetail->pest==1) {
