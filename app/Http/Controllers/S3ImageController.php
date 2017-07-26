@@ -172,6 +172,7 @@ class S3ImageController extends Controller
             $image_command='./../opencvExportHSV_v2.py '.$L_value.' '.$a_value.' '.$b_value.' '.$take_time.' '.$process_id.' '.$array1[0].' '.$array1[1].' '.$array1[2];
             $output = shell_exec($image_command);
             $photodetail->water=(int)$output;
+            //echo $output;
             //$photodetail->save();
             $user_id=Auth::id();
 

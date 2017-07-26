@@ -40,8 +40,8 @@ def extract_features(record,featureEnd):
 def PrepareData(sc): 
     #----------------------1.匯入並轉換資料-------------
     # print("開始匯入資料...")
-    #rawDataWithHeader = sc.textFile("/Users/mindy/laravel-project/Lily/storage/public/lilyflower1.csv")
-    rawDataWithHeader = sc.textFile("/var/www/Lily/storage/public/lilyflower1.csv")
+    rawDataWithHeader = sc.textFile("/Users/mindy/laravel-project/Lily/storage/public/lilyflower1.csv")
+    #rawDataWithHeader = sc.textFile("../../storage/public/lilyflower1.csv")
     header = rawDataWithHeader.first() 
     rawData = rawDataWithHeader.filter(lambda x:x !=header)    
     lines = rawData.map(lambda x: x.split(","))
