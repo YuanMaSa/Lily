@@ -1,6 +1,10 @@
-#!/usr/bin/env python3
-import sys
+
 import os
+os.environ["PYSPARK_PYTHON"]="/usr/local/bin/python3"
+os.environ['SPARK_HOME'] = '/usr/local/spark'
+import findspark
+findspark.init()
+import sys
 from time import time
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,7 +14,7 @@ from pyspark.mllib.regression import LabeledPoint
 import numpy as np
 from pyspark.mllib.evaluation import RegressionMetrics
 import math 
-os.environ["PYSPARK_PYTHON"]="/usr/local/bin/python3"
+#os.environ["PYSPARK_PYTHON"]="/usr/local/bin/python3"
 def SetLogger( sc ):
     logger = sc._jvm.org.apache.log4j
     logger.LogManager.getLogger("org"). setLevel( logger.Level.ERROR )

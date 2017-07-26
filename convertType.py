@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import csv
-f = open('../../storage/public/lilyflower.csv', 'r')
-b = open('../../storage/public/lilyflower1.csv,'w')
+f = open('/var/www/Lily/storage/public/lilyflower.csv', 'r')
+b = open('/var/www/Lilystorage/public/lilyflower1.csv','w')
 writer = csv.writer(b)
 next(f)
 array=['process_id', 'L_value', 'a_value', 'b_value','h','s','v','take_time','water']
