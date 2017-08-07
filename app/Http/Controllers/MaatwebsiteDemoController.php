@@ -32,7 +32,7 @@ class MaatwebsiteDemoController extends Controller
 		$t=Excel::create($filePath, function($excel) use ($data) {
 			$excel->sheet('mySheet', function($sheet) use ($data)
 	        {
-				$sheet->fromArray($data, null, 'A1', true);
+				$sheet->fromArray($data, null, 'A1', true,false);
 				$sheet->prependRow(1, array(
 				    '農戶名字', 'E-mail','含水量','製程方式','L值','a值','b值','h','s','v','取樣時間','農田地址','上傳時間'
 				));
