@@ -239,7 +239,7 @@ return array(
             | Value in source array that stands for blank cell
             |--------------------------------------------------------------------------
             */
-            'nullValue'            => 0,
+            'nullValue'            => '0',
 
             /*
             |--------------------------------------------------------------------------
@@ -253,7 +253,7 @@ return array(
             | Apply strict comparison when testing for null values in the array
             |--------------------------------------------------------------------------
             */
-            'strictNullComparison' => false
+            'strictNullComparison' => true
         ],
 
         /*

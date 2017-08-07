@@ -413,21 +413,6 @@ column-count: 2;
 }
 }
 
-@media(max-width: 540px){
-  .masonry.masonry-columns-4, 
-  .masonry.masonry-columns-5,
-  .masonry.masonry-columns-3,
-  .masonry.masonry-columns-2{
--webkit-column-count: 1;
--moz-column-count: 1;
-column-count: 1;
-}
-  .displat_sort{
-    display: none;
-    color:#FFFFFF;
-  }
-}
-
 .masonry .masonry-item{
     display: inline-block !important;
     width: 100% !important;
@@ -656,7 +641,7 @@ column-count: 1;
 .thumbnail {
     padding: 4px;
     line-height: 1.428571429;
-    background-color: rgba(123, 204, 228, 0.78);
+    background-color: #FFFEFE;
     border: 1px solid transparent;
     border-radius: 0px;
     color: #FFFFFF;
@@ -664,7 +649,7 @@ column-count: 1;
 }
 .thumbnail .caption {
     padding: 9px;
-    color: #FFFFFF;
+    color: #464646;
 }
 .thumbnail a>img, .thumbnail>img {
     display: block;
@@ -724,3 +709,69 @@ button input[type="file"], .button input[type="file"] {
 .displat_sort{
     color:#FFFFFF;
   }
+.table-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  grid-template-rows: auto;
+}
+@media screen and (min-width: 60em) {
+  .table-cards {
+    grid-template-columns: 1fr;
+    grid-row-gap: 0px;
+  }
+}
+
+.table-card {
+  display: flex;
+  flex-direction: column;
+  grid-column-start: auto;
+  grid-column-end: span 2;
+  min-height: 200px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+}
+.table-card div {
+  padding: 5px 5px;
+  flex: 0 1 auto;
+}
+
+@media screen and (min-width: 60em) {
+  .table-card {
+    display: flex;
+    flex-direction: row;
+    border-radius: 0;
+    min-height: 0;
+  }
+  .show_title{
+  display: none;
+}
+.hide_title{
+  display: contents;
+}
+}
+.table-card .content {
+  background-color: #eee;
+  flex: 1 1 0;
+}
+
+
+@media(max-width: 540px){
+  .masonry.masonry-columns-4, 
+  .masonry.masonry-columns-5,
+  .masonry.masonry-columns-3,
+  .masonry.masonry-columns-2{
+-webkit-column-count: 1;
+-moz-column-count: 1;
+column-count: 1;
+}
+  .displat_sort{
+    display: none;
+    color:#FFFFFF;
+  }
+  .hide_title{
+  display: none;
+}
+}

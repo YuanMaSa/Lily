@@ -18,20 +18,24 @@ class MaatwebsiteDemoController extends Controller
 {
 	public function importExport()
 	{
-		return view('importExport');
+		$photodetails= DB::table('photodetails')->join('addresses', 'addresses.id', '=', 'photodetails.address_id') ->join('users', 'users.id', '=', 'photodetails.user_id')->join('processes', 'processes.id', '=', 'photodetails.process_id')->select('users.name as UName','users.email','photodetails.water','processes.method', 'photodetails.L_value', 'photodetails.a_value', 'photodetails.b_value','photodetails.h','photodetails.s','photodetails.v','photodetails.take_time','photodetails.photo_url','addresses.name as AName','photodetails.created_at')->get();
+		return view('importExport',compact('photodetails'));
 	}
 	public function downloadExcel($type)
 	{
 		//$data = photodetail::get(array('process_id', 'L_value', 'a_value', 'b_value','h','s','v','take_time','water'))->toArray();
 		//$data = photodetail::get(array('process_id', 'L_value', 'a_value', 'b_value','h','s','v','take_time','water'))->toArray();
-		$dataCell = DB::table('photodetails') ->join('users', 'users.id', '=', 'photodetails.user_id')->join('processes', 'processes.id', '=', 'photodetails.process_id')->select('users.name','users.email','photodetails.water','processes.method', 'photodetails.L_value', 'photodetails.a_value', 'photodetails.b_value','photodetails.h','photodetails.s','photodetails.v','photodetails.take_time')->get();
+		$dataCell = DB::table('photodetails')->join('addresses', 'addresses.id', '=', 'photodetails.address_id') ->join('users', 'users.id', '=', 'photodetails.user_id')->join('processes', 'processes.id', '=', 'photodetails.process_id')->select('users.name as UName','users.email','photodetails.water','processes.method', 'photodetails.L_value', 'photodetails.a_value', 'photodetails.b_value','photodetails.h','photodetails.s','photodetails.v','photodetails.take_time','addresses.name as AName','photodetails.created_at')->get();
 		$data = collect($dataCell)->map(function($x){ return (array) $x; })->toArray();
 		//echo $data;
 		$filePath = iconv('UTF-8', 'big5', '農戶資料');
 		$t=Excel::create($filePath, function($excel) use ($data) {
 			$excel->sheet('mySheet', function($sheet) use ($data)
 	        {
-				$sheet->fromArray($data, null, 'A1', true,false);
+				$sheet->fromArray($data, null, 'A1', true);
+				$sheet->prependRow(1, array(
+				    '農戶名字', 'E-mail','含水量','製程方式','L值','a值','b值','h','s','v','取樣時間','農田地址','上傳時間'
+				));
 	        });
 		})->store($type, storage_path('public'))->download($type);
 		

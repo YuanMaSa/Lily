@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>金針花辨識系統</title>
-
+    <link rel="icon" type="image/png" href="{{ asset('img/sunflower.png') }}" />
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">
@@ -77,6 +77,9 @@
                             <li class="nav-item"><a data-toggle="modal" data-target="#myModal" class="clickable" style="color: #FFFFFF;cursor:pointer; ">新增園區</a></li>
                             <li class="nav-item"><a href="{{ url('/address') }}" style="color: #FFFFFF">園區檢視</a></li>
                             <li class="nav-item"><a href="{{ url('s3-image-upload') }}" style="color: #FFFFFF">上傳圖片</a></li>
+                            @if(Auth::user()->role_id!=1)
+                            <li class="nav-item"><a href="{{ url('importExport') }}" style="color: #FFFFFF">匯出資料</a></li>
+                            @endif
                             <li class="nav-item"><a href="#" style="color: #FFFFFF">{{ Auth::user()->name }} </a></li>
                              <li class="nav-item">
                              <a href="{{ route('logout') }}" style="color: #FFFFFF" onclick="event.preventDefault();

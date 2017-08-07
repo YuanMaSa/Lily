@@ -163,13 +163,18 @@ class S3ImageController extends Controller
             #$command = escapeshellcmd($image_command);
             #$command="./../opencvExportHSV.py ".$imageName;
             #echo "<br>command : ".$image_command;
-            $output1 = shell_exec('python3 /var/www/Lily/convertType.py');
-            $output2 = shell_exec('python3 /var/www/Lily/openCV.py '.$imageName);
+            $output1 = shell_exec('./../convertType.py');
+            $output2 = shell_exec('./../openCV.py '.$imageName);
+
+            // $output1 = shell_exec('python3 /var/www/Lily/convertType.py');
+            // $output2 = shell_exec('python3 /var/www/Lily/openCV.py '.$imageName);
             $array1 = explode(",",$output2);
             $photodetail->h=$array1[0];
             $photodetail->s=$array1[1];
             $photodetail->v=$array1[2];
-            $image_command='python3 /var/www/Lily/opencvExportHSV_v2.py '.$L_value.' '.$a_value.' '.$b_value.' '.$take_time.' '.$process_id.' '.$array1[0].' '.$array1[1].' '.$array1[2];
+            $image_command='./../opencvExportHSV_v2.py '.$L_value.' '.$a_value.' '.$b_value.' '.$take_time.' '.$process_id.' '.$array1[0].' '.$array1[1].' '.$array1[2];
+
+            //$image_command='python3 /var/www/Lily/opencvExportHSV_v2.py '.$L_value.' '.$a_value.' '.$b_value.' '.$take_time.' '.$process_id.' '.$array1[0].' '.$array1[1].' '.$array1[2];
             $output = shell_exec($image_command);
 
             $photodetail->water=(int)$output;
