@@ -35,7 +35,7 @@
             <h4 class="modal-title" id="myModalLabel">修改園區</h4>
           </div>
           <form class="form-horizontal" action="address/{{$address->id}}"  method="post">
-          <div class="modal-body">
+          <div class="modal-body">{{csrf_field()}}
           {{method_field('PUT')}}
           <input type="hidden" name="id" value="{{$address->id}}">
               <div class="form-group">
@@ -47,8 +47,8 @@
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-md btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" action="AccountList" name="type" value="deleteMember" class="btn btn-md btn-primary">確認</button>
+            <button type="button" class="btn btn-md btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" action="AccountList" name="type" value="deleteMember" class="btn btn-md btn-danger">確認</button>
           </div>
 
         </form>

@@ -716,6 +716,10 @@ button input[type="file"], .button input[type="file"] {
   grid-row-gap: 20px;
   grid-template-rows: auto;
 }
+.table-card .content {
+  background-color: #eee;
+  flex: 1 1 0;
+}
 @media screen and (min-width: 60em) {
   .table-cards {
     grid-template-columns: 1fr;
@@ -752,10 +756,7 @@ button input[type="file"], .button input[type="file"] {
   display: contents;
 }
 }
-.table-card .content {
-  background-color: #eee;
-  flex: 1 1 0;
-}
+
 
 
 @media(max-width: 540px){
