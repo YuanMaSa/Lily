@@ -36,7 +36,7 @@ for c in cnts:
     
 # print(a[0])
 cv2.drawContours(img, [c], -1, (0, 255, 0), 2)
-cv2.circle(img, (a[0][0], a[0][1]), 50, (0, 255, 0), 2)
+cv2.circle(img, (a[0][0], a[0][1]), 150, (0, 255, 0), 2)
 cv2.putText(img, "center", (a[0][0], a[0][1]),
 cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 3)
 hsv_img = cv2.cvtColor(img,cv2.COLOR_BGR2HSV)
