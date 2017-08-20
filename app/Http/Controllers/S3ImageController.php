@@ -78,10 +78,10 @@ class S3ImageController extends Controller
             $photodetail->L_value = $request->L_value;
             $photodetail->a_value = $request->a_value;
             $photodetail->b_value = $request->b_value;
-            $photodetail->disease = 0;
+            $photodetail->disease = $request->disease;
             $disease_list=$request->input('disease_list');
             $pest_list=$request->input('pest_list');
-            $photodetail->pest = 0;
+            //$photodetail->pest = 0;
             $photodetail->user_id = $request->user_id;
             $photodetail->process_id = $request->process_id;
             $photodetail->address_id = $request->address_id;
@@ -107,6 +107,15 @@ class S3ImageController extends Controller
                     ['photodetail_id' => $id, 'disease_id' => $disease_list[$i]]);
                 }
             }
+            $data = photodetail::get(array('process_id', 'L_value', 'a_value', 'b_value','h','s','v','take_time','water'))->toArray();
+            //$data = DB::table('photodetails')->select('process_id', 'L_value', 'a_value', 'b_value','h','s','v','take_time','water')->get()->toArray();
+            //echo $data;
+            $t=Excel::create('lilyflower', function($excel) use ($data) {
+                $excel->sheet('mySheet', function($sheet) use ($data)
+                {
+                   $sheet->fromArray($data, null, 'A1', true,false);
+                });
+            })->store('csv', storage_path('public'));
             return redirect('home');
         }else{
             $process_id = $request->process_id;
@@ -130,10 +139,10 @@ class S3ImageController extends Controller
             $photodetail->L_value = $request->L_value;
             $photodetail->a_value = $request->a_value;
             $photodetail->b_value = $request->b_value;
-            $photodetail->disease = 0;
+            $photodetail->disease = $request->disease;
             $disease_list=$request->input('disease_list');
             $pest_list=$request->input('pest_list');
-            $photodetail->pest = 0;
+            //$photodetail->pest = 0;
             $photodetail->user_id = $request->user_id;
             $photodetail->process_id = $request->process_id;
             $photodetail->address_id = $request->address_id;
@@ -163,22 +172,22 @@ class S3ImageController extends Controller
             #$command = escapeshellcmd($image_command);
             #$command="./../opencvExportHSV.py ".$imageName;
             #echo "<br>command : ".$image_command;
-            // $output1 = shell_exec('./../convertType.py');
-            // $output2 = shell_exec('./../openCV.py '.$imageName);
-
+            //$output1 = shell_exec('/Users/mindy/laravel-project/Lily/convertType.py');
+            // echo "output1 : ".$output1;
+            //$output2 = shell_exec('/Users/mindy/laravel-project/Lily/openCV.py '.$imageName);
+            // echo "output2 : ".$output2;
             $output1 = shell_exec('python3 /var/www/Lily/convertType.py');
             $output2 = shell_exec('python3 /var/www/Lily/openCV.py '.$imageName);
             $array1 = explode(",",$output2);
             $photodetail->h=$array1[0];
             $photodetail->s=$array1[1];
             $photodetail->v=$array1[2];
-            //$image_command='./../opencvExportHSV_v2.py '.$L_value.' '.$a_value.' '.$b_value.' '.$take_time.' '.$process_id.' '.$array1[0].' '.$array1[1].' '.$array1[2];
+            //$image_command='/Users/mindy/laravel-project/Lily/opencvExportHSV_v2.py '.$L_value.' '.$a_value.' '.$b_value.' '.$take_time.' '.$process_id.' '.$array1[0].' '.$array1[1].' '.$array1[2];
 
             $image_command='python3 /var/www/Lily/opencvExportHSV_v2.py '.$L_value.' '.$a_value.' '.$b_value.' '.$take_time.' '.$process_id.' '.$array1[0].' '.$array1[1].' '.$array1[2];
             $output = shell_exec($image_command);
 
             $photodetail->water=(int)$output;
-            //echo $output;
 
             //$photodetail->save();
             $user_id=Auth::id();
@@ -258,7 +267,7 @@ class S3ImageController extends Controller
         $photodetail->a_value = $request->a_value;
         $photodetail->b_value = $request->b_value;
         $photodetail->user_id = $user_id;
-        $photodetail->disease = 0;
+        $photodetail->disease = $request->disease;
         $disease_list=$request->input('disease_list');
         $pest_list=$request->input('pest_list');
         $photodetail->pest = 0;

@@ -53,7 +53,7 @@ $(function (){
 		<img src="{{ Session::get('path') }}">
 	  @endif
 <form class="form-horizontal"  action="{{ url('s3-image-upload') }}" enctype="multipart/form-data" method="POST">
-{{ csrf_field() }}
+<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
  <div class="row" style="margin-top: 100px;">
   <div class="col-md-1 col-sm-1"></div>
@@ -131,9 +131,9 @@ $(function (){
     <div class="col-sm-10 control-label ">
      <label  for="exampleInputEmail1" style="color: rgba(255, 0, 0, 0.54);">*所屬園區若為空白，請先新增園區</label>
     </div>
-<!--      <div class="form-group">
+     <div class="form-group">
       <div class="col-sm-3 control-label ">
-       <label  for="exampleInputEmail1">病害</label>
+       <label  for="exampleInputEmail1">九宮格位置</label>
       </div>
        <div class="col-sm-7 control-label">
        <center>
@@ -153,8 +153,8 @@ $(function (){
                 
         </script>
        </div>
-    </div> -->
-<!--     <div class="form-group">
+    </div>
+    <div class="form-group">
       <div class="col-sm-2 control-label ">
        <label  for="exampleInputEmail1"></label>
       </div>
@@ -165,7 +165,7 @@ $(function (){
           @endforeach
         </div>
        </div>
-    </div> -->
+    </div>
  <!--    <div class="form-group">
       <div class="col-sm-3 control-label ">
        <label  for="exampleInputEmail1">蟲害</label>

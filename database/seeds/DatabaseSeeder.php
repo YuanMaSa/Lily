@@ -38,22 +38,47 @@ class DatabaseSeeder extends Seeder
             "updated_at" => \Carbon\Carbon::now(),
         ]);
         DB::table('diseases')->insert([
-            'disease_name' => '黑點病',
+            'disease_name' => '1',
             "created_at" =>  \Carbon\Carbon::now(),
             "updated_at" => \Carbon\Carbon::now(),
         ]);
         DB::table('diseases')->insert([
-            'disease_name' => '瘡痂病',
+            'disease_name' => '2',
             "created_at" =>  \Carbon\Carbon::now(),
             "updated_at" => \Carbon\Carbon::now(),
         ]);
         DB::table('diseases')->insert([
-            'disease_name' => '潰瘍病',
+            'disease_name' => '3',
             "created_at" =>  \Carbon\Carbon::now(),
             "updated_at" => \Carbon\Carbon::now(),
         ]);
         DB::table('diseases')->insert([
-            'disease_name' => '疫病',
+            'disease_name' => '4',
+            "created_at" =>  \Carbon\Carbon::now(),
+            "updated_at" => \Carbon\Carbon::now(),
+        ]);
+        DB::table('diseases')->insert([
+            'disease_name' => '5',
+            "created_at" =>  \Carbon\Carbon::now(),
+            "updated_at" => \Carbon\Carbon::now(),
+        ]);
+        DB::table('diseases')->insert([
+            'disease_name' => '6',
+            "created_at" =>  \Carbon\Carbon::now(),
+            "updated_at" => \Carbon\Carbon::now(),
+        ]);
+        DB::table('diseases')->insert([
+            'disease_name' => '7',
+            "created_at" =>  \Carbon\Carbon::now(),
+            "updated_at" => \Carbon\Carbon::now(),
+        ]);
+         DB::table('diseases')->insert([
+            'disease_name' => '8',
+            "created_at" =>  \Carbon\Carbon::now(),
+            "updated_at" => \Carbon\Carbon::now(),
+        ]);
+          DB::table('diseases')->insert([
+            'disease_name' => '9',
             "created_at" =>  \Carbon\Carbon::now(),
             "updated_at" => \Carbon\Carbon::now(),
         ]);

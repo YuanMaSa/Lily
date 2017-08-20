@@ -33,7 +33,7 @@
     <script src="{{asset('js/croppie.js')}}"></script>
     <script src="http://desandro.github.io/imagesloaded/imagesloaded.pkgd.min.js"></script>
     
-<body  style="background-image: url(img/farm.png);
+<body  style="background-image: url(img/background.png);
             background-repeat: no-repeat;
             background-attachment: fixed;
             background-position: top;

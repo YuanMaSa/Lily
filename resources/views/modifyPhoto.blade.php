@@ -140,9 +140,9 @@ $(function (){
      <label  for="exampleInputEmail1" style="color: rgba(255, 0, 0, 0.54);">*所屬園區若為空白，請先新增園區</label>
     </div>
     </div>
-   <!--  <div class="form-group">
+    <div class="form-group">
       <div class="col-sm-3 control-label ">
-       <label  for="exampleInputEmail1">病害</label>
+       <label  for="exampleInputEmail1">九宮格位置</label>
       </div>
        <div class="col-sm-7 control-label">
        <center>
@@ -167,8 +167,8 @@ $(function (){
                 
         </script>
        </div>
-    </div> -->
-    <!-- <div class="form-group">
+    </div>
+    <div class="form-group">
       <div class="col-sm-2 control-label ">
        <label  for="exampleInputEmail1"></label>
       </div>
@@ -207,7 +207,7 @@ $(function (){
         @endif
         </div>
        </div>
-    </div> -->
+    </div>
     <!-- <div class="form-group">
       <div class="col-sm-3 control-label ">
        <label  for="exampleInputEmail1">蟲害</label>
