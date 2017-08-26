@@ -67,7 +67,7 @@
                     <ul class="nav navbar-nav navbar-right" style="background-color:#3770A9 ;font-size: 17px">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li style="background-image: url(img/cccloud.png);width: 90px;height: 55px"><a href="{{ route('login') }}" style="color: #FFFFFF;padding:17px 23px"> Login</a></li>
+                            <li style="width: 90px;height: 55px"><a href="{{ route('login') }}" style="color: #FFFFFF;padding:17px 23px"> Login</a></li>
                             </ul>
                             </nav>
                         @else
