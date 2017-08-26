@@ -65,7 +65,7 @@
             }
         </style>
     </head>
-    <body style="background-image: url('{{ asset('img/farm.png') }}');background-size: cover;">
+    <body style="background-image: url('{{ asset('img/background.png') }}');background-size: cover;">
     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
         <div class="flex-center position-ref full-height">
