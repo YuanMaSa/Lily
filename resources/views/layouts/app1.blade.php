@@ -72,24 +72,42 @@
                             </nav>
                         @else
                         <li ><a a href="{{ url('/home') }}" style="color: #FFFFFF">瀏覽圖片</a></li>
-                            <li class="nav-item"><a href="{{ url('s3-image-upload') }}" style="color: #FFFFFF">上傳圖片</a></li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF">個人設定<span class="caret"></span></a>
-                                <ul class="dropdown-menu">
-                                    <li><a data-toggle="modal" data-target="#myModal" class="clickable" style="color: #FFFFFF;cursor:pointer; ">新增園區</a></li>
-                                    <li><a href="{{ url('/address') }}" style="color: #FFFFFF">園區檢視</a></li>
-                                    <li><a href="{{ url('importExport') }}" style="color: #FFFFFF">匯出資料</a></li>
-                                    <li>
-                                        <a href="{{ route('logout') }}" style="color: #FFFFFF" onclick="event.preventDefault();
-                                                             document.getElementById('logout-form').submit();" >
-                                                    登出
-                                        </a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none; color: #FFFFFF">
-                                                    {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                         </li>
+                        <li ><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" style="color: #FFFFFF">日期排序</a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF">製程分類<span class="caret"></span></a>
+                          <ul class="dropdown-menu " role="menu">
+                            <li role="presentation" ><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab" style="color: #FFFFFF">低溫製程</a></li>
+                            <li role="presentation" ><a href="#profile2" aria-controls="profile" role="tab" data-toggle="tab" style="color: #FFFFFF">日曬製程</a></li>
+                            <li role="presentation" ><a href="#profile3" aria-controls="profile" role="tab" data-toggle="tab" style="color: #FFFFFF">熱風製程</a></li>
+                            <li role="presentation" ><a href="#profile4" aria-controls="profile" role="tab" data-toggle="tab" style="color: #FFFFFF">其他製程</a></li>
+                        </ul>
+                        </li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF">園區分類<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            @foreach ($addresses as $address)
+                            <li role="presentation" ><a href="#settings{{$address->id}}" aria-controls="settings" role="tab" data-toggle="tab" style="color: #FFFFFF">{{$address->name}}</a></li>
+                            @endforeach
+                          </ul>
+                        </li>
+                        <li class="nav-item"><a href="{{ url('s3-image-upload') }}" style="color: #FFFFFF">上傳圖片</a></li>
+                        <li class="dropdown">
+                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #FFFFFF">個人設定<span class="caret"></span></a>
+                          <ul class="dropdown-menu">
+                            <li><a data-toggle="modal" data-target="#myModal" class="clickable" style="color: #FFFFFF;cursor:pointer; ">新增園區</a></li>
+                            <li><a href="{{ url('/address') }}" style="color: #FFFFFF">園區檢視</a></li>
+                            <li><a href="{{ url('importExport') }}" style="color: #FFFFFF">匯出資料</a></li>
+                            <li>
+                                <a href="{{ route('logout') }}" style="color: #FFFFFF" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();" >
+                                            登出
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display:none; color: #FFFFFF">
+                                            {{ csrf_field() }}
+                                </form>
+                            </li>
+                          </ul>
+                        </li>
                             <li class="nav-item"><a href="#" style="color: #FFFFFF">{{ Auth::user()->name }} </a></li>
 
                                 </ul>

@@ -1,55 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('content')
 <div class="container">
-    <div class="row">
-    <div class="col-sm-0 col-md-0"></div>
-
-
-        <div class="col-sm-12 col-md-12">
-        <center>
-            <div class="btn-group" data-toggle="buttons" style="border: 2px;border-color: #C4E1FF;margin: 50px auto 20px auto;">
-           <!-- background-image: url(img/sun.png);background-position:left;background-size: 150px;background-repeat:no-repeat; -->
-
-        <div role="tabpanel">
-
-              <!-- Nav tabs -->
-              <ul class="nav nav-tabs nav navbar-nav navbar-right" role="tablist" >
-
-                <li role="presentation" class="active btncolor btn btn-primary button"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" style="padding:30px 25px 30px 25px;">瀏覽全部照片</a></li>
-                <li role="presentation" class="dropdown btncolor btn button">
-                <a class=" dropdown-toggle" data-toggle="dropdown" href="#" role="tab" aria-expanded="false" style="width: 185px;height: 15px;font-size: 16px;text-align: center; padding:30px 25px 30px 25px;">
-                        乾燥製程分類 <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu " role="menu">
-                    <li role="presentation" ><a href="#profile1" aria-controls="profile" role="tab" data-toggle="tab">低溫製程</a></li>
-                    <li role="presentation" ><a href="#profile2" aria-controls="profile" role="tab" data-toggle="tab">日曬製程</a></li>
-                    <li role="presentation" ><a href="#profile3" aria-controls="profile" role="tab" data-toggle="tab">熱風製程</a></li>
-                    <li role="presentation" ><a href="#profile4" aria-controls="profile" role="tab" data-toggle="tab">其他製程</a></li>
-                </ul>
-                </li>
-                <li role="presentation" class="btncolor btn btn-primary button"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" style="padding:30px 25px 30px 25px">日期排序</a></li>
-                <li role="presentation" class="btncolor dropdown btn button">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="tab" aria-expanded="false" style="width: 145px;height: 15px;font-size: 16px;text-align: center; padding:30px 25px 30px 25px">
-                        園區分類 <span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu " role="menu">
-                    @foreach ($addresses as $address)
-                    <li role="presentation" ><a href="#settings{{$address->id}}" aria-controls="settings" role="tab" data-toggle="tab">{{$address->name}}</a></li>
-                    @endforeach
-                </ul>
-                </li>
-
-              </ul>
-              <p class="displat_sort">＊排列順序：由左至右</p>
-            </div>
-
-        </div>
-        </center>
-        </div>
-
-        <div class="col-sm-0 col-md-0"></div>
-     </div>
 
 <div>
 
